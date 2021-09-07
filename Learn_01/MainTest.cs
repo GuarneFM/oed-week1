@@ -4,11 +4,15 @@ using System.Diagnostics;
 using System.Linq;
 using Learn_01.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ContainerLibrary;
 using ContainerLibrary.Extensions;
+
+
+using static ContainerLibrary.MockedEntities;
 
 namespace Learn_01
 {
+    /// <summary>
+    /// </summary>
     [TestClass]
     public partial class MainTest : TestBase
     {
@@ -40,10 +44,7 @@ namespace Learn_01
                 }
             }
 
-            Assert.IsTrue(countForPin > 0);
-
-            var count = results.Count(record => record.TrPin == "0003");
-            Console.WriteLine($"Found {count} and {countForPin}");
+            Assert.IsTrue(countForPin == 314);
 
         }
 
@@ -52,12 +53,13 @@ namespace Learn_01
         [TestTraits(Trait.IfStatements)]
         public void Simple_If_Statement_2()
         {
-            Assert.IsNull(MockedEntities.nullEmployee());
-            Assert.IsTrue(MockedEntities.nullEmployee() is null);
-            Assert.IsTrue(MockedEntities.nullEmployee() == null);
-            Assert.IsTrue(MockedEntities.notNullEmployee() is not null);
-            Assert.IsTrue(MockedEntities.notNullEmployee() != null);
+            Assert.IsNull(nullEmployee());
+            Assert.IsTrue(nullEmployee() is null);
+            Assert.IsTrue(nullEmployee() == null);
+            Assert.IsTrue(notNullEmployee() is not null);
+            Assert.IsTrue(notNullEmployee() != null);
         }
+        
         /// <summary>
         /// Here the [if statement] uses C#8 property pattern matching
         ///
@@ -70,7 +72,7 @@ namespace Learn_01
         [TestTraits(Trait.IfStatements)]
         public void If_Nullable_Property_IsNull_PropertyMatching()
         {
-            var customer = MockedEntities.GetCustomer();
+            var customer = GetCustomer();
             customer.Value = 9;
 
            
@@ -198,7 +200,7 @@ namespace Learn_01
             Assert.IsTrue(exception is null);
 
             transactionList
-                .Take(9)
+                .Take(9) // take first nine records
                 .ToList()
                 .ForEach(record => result.Add(record.Identifier));
 
