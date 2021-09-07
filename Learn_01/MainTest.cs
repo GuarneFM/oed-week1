@@ -30,7 +30,7 @@ namespace Learn_01
             var results = ReadIccTransactionRecordsFromFile()
                 .transactionList.ToList();
 
-            int countForPin = 0;
+            var countForPin = 0;
 
             foreach (var iccTran in results)
             {
