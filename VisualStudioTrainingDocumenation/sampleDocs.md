@@ -4,7 +4,7 @@ Class [Pre-check](#Check-List)
 
 Various [Notes](#Notes)
 
-Code [samples](#Code=samples)
+Code [samples](#code=samples)
 
 
 
