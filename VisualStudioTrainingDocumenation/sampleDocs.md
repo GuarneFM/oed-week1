@@ -68,5 +68,5 @@ This is *italics*
 
 
 | :white_check_mark: Do this   | :x: Don't do this |
-| :--- |
+| :--- | :--- |
 | something | something else |
