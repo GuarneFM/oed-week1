@@ -35,38 +35,3 @@ Shows how to use a table
 | [?:](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator) operator | The conditional operator ?:, also known as the ternary conditional operator, evaluates a Boolean expression and returns the result of one of the two expressions, depending on whether the Boolean expression evaluates to true or false,|
 
 
-# Git Codes
-
-Green check :heavy_check_mark:
-
-<kbd>control</kbd> + <kbd>shift</kbd> + <kbd>W</kbd><br><br><br>
-
-
-:purple_circle: Entity Framework Core
-
-:yellow_circle: SQL client data provider
-
-:red_circle:  :radio_button: :white_circle: :green_circle:
-
-:red_square: :white_large_square: 	:green_square: 	:yellow_square:
-
-:gear:   :mag:   :mag:
-
-
-
----
-
-Stop sign :stop_sign:
-
-:warning:
-
-:radioactive:
-
-This is **bold**
-
-This is *italics*
-
-
-| :white_check_mark: Do this   | :x: Don't do this |
-| :--- | :--- |
-| something | something else |
