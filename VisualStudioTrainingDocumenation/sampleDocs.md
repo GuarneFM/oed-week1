@@ -1,16 +1,13 @@
+
+
 # Visual Studio Training
 
-Class [Pre-check](#Check-List)
-
-Various [Notes](#Notes)
-
-[Documentation](#Documentation)
+- Class [Pre-check](#Pre-class-Check-List) which **must** be completed before the first class.
+- Various [Notes](#Notes)
+- [Documentation](#Documentation)
 
 
-
-
-
-# Check list
+# Pre class Check list
 
 - [x] Visual Studio 2019 is installed and product key applied
   - [x] Github [extension](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio) is installed
@@ -28,6 +25,8 @@ Anything to make note of goes here
 
 # Documentation
 
+Shows how to use a table
+
 | Operators  | Defintion|
 | :--- |:--- |
 | [=>](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator) operator (C# reference) | In lambda expressions, the lambda operator => separates the input parameters on the left side from the lambda body on the right side.|
@@ -36,3 +35,38 @@ Anything to make note of goes here
 | [?:](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator) operator | The conditional operator ?:, also known as the ternary conditional operator, evaluates a Boolean expression and returns the result of one of the two expressions, depending on whether the Boolean expression evaluates to true or false,|
 
 
+# Git Codes
+
+Green check :heavy_check_mark:
+
+<kbd>control</kbd> + <kbd>shift</kbd> + <kbd>W</kbd><br><br><br>
+
+
+:purple_circle: Entity Framework Core
+
+:yellow_circle: SQL client data provider
+
+:red_circle:  :radio_button: :white_circle: :green_circle:
+
+:red_square: :white_large_square: 	:green_square: 	:yellow_square:
+
+:gear:   :mag:   :mag:
+
+
+
+---
+
+Stop sign :stop_sign:
+
+:warning:
+
+:radioactive:
+
+This is **bold**
+
+This is *italics*
+
+
+| :white_check_mark: Do this   | :x: Don't do this |
+| :--- |
+| something | something else |
