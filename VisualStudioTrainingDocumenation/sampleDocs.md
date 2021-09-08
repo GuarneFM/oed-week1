@@ -1,7 +1,10 @@
 # Visual Studio Training
 
-### [Pre-check](#Check-List)
-### [Notes](#Notes)
+Class [Pre-check](#Check-List)
+
+Various [Notes](#Notes)
+
+Code [samples](#Code=samples)
 
 
 
@@ -19,5 +22,15 @@ Any questions contact Karen Payne
 
 # Notes
 
+Anything to make note of goes here
+
+# Code samples
+
+| Operators  | Defintion|
+| :--- |:--- |
+| [=>](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator) operator (C# reference) | In lambda expressions, the lambda operator => separates the input parameters on the left side from the lambda body on the right side.|
+| ! ([null-forgiving](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving)) operator | Available in C# 8.0 and later, the unary postfix ! operator is the null-forgiving, or null-suppression, operator. In an enabled nullable annotation context, you use the null-forgiving operator to declare that expression x of a reference type isn't null: x!. The unary prefix ! operator is the logical negation operator. |
+| [?? and ??=](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator) operators  | The null-coalescing operator ?? returns the value of its left-hand operand if it isn't null; otherwise, it evaluates the right-hand operand and returns its result. The ?? operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null.|
+| [?:](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator) operator | The conditional operator ?:, also known as the ternary conditional operator, evaluates a Boolean expression and returns the result of one of the two expressions, depending on whether the Boolean expression evaluates to true or false,|
 
 
