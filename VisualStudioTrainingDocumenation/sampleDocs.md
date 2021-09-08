@@ -1,6 +1,7 @@
 # Visual Studio Training
 
-# [Pre-check](#Check-List)
+### [Pre-check](#Check-List)
+### [Notes](#Notes)
 
 
 
@@ -18,5 +19,5 @@ Any questions contact Karen Payne
 
 # Notes
 
-Test
+
 
