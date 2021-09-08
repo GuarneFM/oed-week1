@@ -20,7 +20,7 @@ Various [Notes](#Notes)
 - [x] [Visual Studio code](https://code.visualstudio.com/download) is installed
 - [x] Have [created](https://docs.github.com/en/get-started/signing-up-for-github/signing-up-for-a-new-github-account) a `personal GitHub account`.
 
-Any questions contact Karen Payne
+Any questions contact Karen Payne <karen.1.payne@oregon.gov>
 
 # Notes
 
