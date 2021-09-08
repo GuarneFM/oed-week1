@@ -1,6 +1,6 @@
 # Visual Studio Training
 
-Place one has the fun times of linking here, but I can also link back [here](#Check-List).
+# [Pre-check](#Check-List)
 
 
 
@@ -17,4 +17,6 @@ Place one has the fun times of linking here, but I can also link back [here](#Ch
 Any questions contact Karen Payne
 
 # Notes
+
+Test
 
