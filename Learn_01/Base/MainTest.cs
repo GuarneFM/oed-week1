@@ -1,10 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#nullable enable
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ContainerLibrary.Classes;
+using Learn_01.Classes;
 
 
 // ReSharper disable once CheckNamespace - do not change
@@ -18,6 +21,7 @@ namespace Learn_01
         [TestInitialize]
         public void Initialization()
         {
+            Mocking.Initialization();
             if (TestContext.TestName == nameof(Simple_If_Statement_2))
             {
                 // TODO
@@ -56,6 +60,52 @@ namespace Learn_01
         public static (List<IccTran> transactionList, Exception exception) ReadIccTransactionRecordsFromFile() =>
             Helpers.JsonToListModel<IccTran>(TransactionJsonFile);
 
+        /// <summary>
+        /// Demonstrates <see cref="Enumerable.Any"/>
+        /// </summary>
+        /// <returns></returns>
+        public static List<string> GetExcelFilesUsingAny()
+        {
 
+            var allowedExtensions = new[]
+            {
+                ".xls", 
+                ".xlsx"
+            };
+            
+            List<string?> excelFiles = Directory
+                .GetFiles(AppDomain.CurrentDomain.BaseDirectory)
+                .Where(file => allowedExtensions
+                    .Any(file.ToLower().EndsWith))
+                .Select(Path.GetFileName)
+
+                .ToList();
+
+            /*
+             * ! (null-forgiving) operator
+             * https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving
+             */
+            return excelFiles!;
+
+        }
+        public static List<string> GetExcelFilesUsingNoviceVersion()
+        {
+
+            List<string> excelFiles = new();
+
+            var fileLists = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory);
+
+            foreach (var item in fileLists)
+            {
+                if (Path.GetExtension(item) == ".xls" || Path.GetExtension(item) == ".xlsx")
+                {
+                    excelFiles.Add(Path.GetFileName(item));
+                }
+            }
+
+
+            return excelFiles;
+
+        }
     }
 }

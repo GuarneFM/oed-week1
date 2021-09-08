@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using ContainerLibrary;
 using Learn_01.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ContainerLibrary.Extensions;
-
-
+using Learn_01.Classes;
+using Learn_01.LanguageExtensions;
 using static ContainerLibrary.MockedEntities;
 
 namespace Learn_01
@@ -47,6 +48,37 @@ namespace Learn_01
             Assert.IsTrue(countForPin == 314);
 
         }
+
+        [TestMethod]
+        [TestTraits(Trait.IfStatements)]
+        public void IfStringIsEmptyOrWhiteSpace()
+        {
+            string monthName = "";
+
+            if (!string.IsNullOrWhiteSpace(monthName))
+            {
+                
+            }
+
+            if (monthName.IsNullOrWhiteSpace())
+            {
+                
+            }
+
+            monthName = Mocked.RussianMonthNames().FirstOrDefault();
+            if (!string.IsNullOrWhiteSpace(monthName))
+            {
+
+            }
+
+            if (monthName.IsNullOrWhiteSpace())
+            {
+
+            }
+
+
+        }
+
 
 
         [TestMethod]
@@ -133,6 +165,51 @@ namespace Learn_01
             }
         }
 
+        /// <summary>
+        /// Demonstrates a logic test using .Any
+        /// </summary>
+        /// <remarks>
+        /// By altering <see cref="Mocking.DummyFileNameList"/> can break this test as we are looking at a count
+        /// </remarks>
+        [TestMethod]
+        [TestTraits(Trait.IfStatements)]
+        public void If_Any()
+        {
+            int expectedCount = 4;
+            
+            Assert.AreEqual(GetExcelFilesUsingAny().Count, expectedCount, "Did you change mocked data?");
+            
+            Assert.AreEqual(GetExcelFilesUsingNoviceVersion().Count, expectedCount, "Did you change mocked data?");
+            
+        }
+
+        /// <summary>
+        /// determine whether an array contains only odd numbers.
+        /// </summary>
+        [TestMethod]
+        [TestTraits(Trait.IfStatements)]
+        public void If_All()
+        {
+            bool validator(int[] numbers)
+            {
+                foreach (var value in numbers)
+                {
+                    if (value % 2 != 1) continue;
+                    return true;
+                }
+                return false;
+
+            }
+            int[] numbersArray = { 1, 11, 3, 19, 41, 65, 19 };
+
+           
+            Assert.IsTrue(numbersArray.All(item => item % 2 == 1));
+            
+            Assert.IsTrue(validator(numbersArray));
+            
+        }
+
+        
         /// <summary>
         /// Simple [for] statement, mirrors the above [do while] statement
         /// </summary>

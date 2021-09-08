@@ -5,9 +5,11 @@
 	  <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayGroundNetClassLibrary\PlayGroundNetClassLibrary.csproj" />
+    <Compile Remove="Console projects\**" />
+    <EmbeddedResource Remove="Console projects\**" />
+    <None Remove="Console projects\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Console projects\" />
+    <ProjectReference Include="..\PlayGroundNetClassLibrary\PlayGroundNetClassLibrary.csproj" />
   </ItemGroup>
 </Project>
