@@ -7,21 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		SolutionStructures\aspSolution.md = SolutionStructures\aspSolution.md
 		readme.md = readme.md
+		sampleDocs.md = sampleDocs.md
+		VisualStudioTrainingDocumenation\sampleDocs.md = VisualStudioTrainingDocumenation\sampleDocs.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{DC28733B-529E-4B0F-BB50-E6884D17BE11}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console projects", "Console projects", "{6BE65DE4-8D68-468F-907A-7DF247D9801C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainerLibrary", "ContainerLibrary\ContainerLibrary.csproj", "{1A5D8A79-C4D9-4907-B158-07D1F6CC7624}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainerLibrary", "ContainerLibrary\ContainerLibrary.csproj", "{1A5D8A79-C4D9-4907-B158-07D1F6CC7624}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IfStatementsConsoleApp", "IfStatementsConsoleApp\IfStatementsConsoleApp.csproj", "{92EDD575-A496-481B-9DA6-466069514843}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IfStatementsConsoleApp", "IfStatementsConsoleApp\IfStatementsConsoleApp.csproj", "{92EDD575-A496-481B-9DA6-466069514843}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn_01", "Learn_01\Learn_01.csproj", "{83CDA10F-3B0B-460D-86CA-40807F07C9E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn_01", "Learn_01\Learn_01.csproj", "{83CDA10F-3B0B-460D-86CA-40807F07C9E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayGroundConsoleNetCoreApp", "PlayGroundConsoleNetCoreApp\PlayGroundConsoleNetCoreApp.csproj", "{8B1A88CA-4123-4BCA-B953-95C4DEA635D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayGroundConsoleNetCoreApp", "PlayGroundConsoleNetCoreApp\PlayGroundConsoleNetCoreApp.csproj", "{8B1A88CA-4123-4BCA-B953-95C4DEA635D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayGroundNetClassLibrary", "PlayGroundNetClassLibrary\PlayGroundNetClassLibrary.csproj", "{F499E645-82FC-4C9C-9ACD-2E1F7AA9B338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayGroundNetClassLibrary", "PlayGroundNetClassLibrary\PlayGroundNetClassLibrary.csproj", "{F499E645-82FC-4C9C-9ACD-2E1F7AA9B338}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions", "Instructions", "{BA69D83E-D4F4-40B7-8318-A5A64900FEDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

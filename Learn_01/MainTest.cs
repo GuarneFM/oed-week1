@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using ContainerLibrary;
+using ContainerLibrary.Classes;
 using Learn_01.Base;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ContainerLibrary.Extensions;
@@ -79,8 +80,6 @@ namespace Learn_01
 
         }
 
-
-
         [TestMethod]
         [TestTraits(Trait.IfStatements)]
         public void Simple_If_Statement_2()
@@ -91,7 +90,56 @@ namespace Learn_01
             Assert.IsTrue(notNullEmployee() is not null);
             Assert.IsTrue(notNullEmployee() != null);
         }
-        
+
+        [TestMethod]
+        [TestTraits(Trait.IfStatements)]
+        public void IfCustomerIsNull()
+        {
+            Customer SingleCustomer()
+            {
+                var singleNotNullCustomer = GetCustomer();
+                singleNotNullCustomer.FirstName = "Karen";
+                return singleNotNullCustomer;
+            }
+
+            Customer SingleNullCustomer()
+            {
+                return null;
+            }
+            
+            /*
+             * Extension methods
+             */
+            Assert.IsTrue(SingleNullCustomer().IsNull());
+            Assert.IsTrue(SingleCustomer().IsNotNull());
+
+            Customer customer = SingleCustomer();
+
+            if (customer is { } customer1)
+            {
+                Debug.WriteLine($"Customer is not null, first name is {customer1.FirstName}");
+            }
+            else
+            {
+                Debug.WriteLine("Customer was null");
+            }
+
+
+            Customer notNullCustomer = SingleNullCustomer();
+            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+            if (notNullCustomer is not { } customer2)
+            {
+                Debug.WriteLine("Customer was null");
+            }
+            else
+            {
+                Debug.WriteLine($"{customer2.FirstName}");
+            }
+
+
+        }
+
+
         /// <summary>
         /// Here the [if statement] uses C#8 property pattern matching
         ///
@@ -104,7 +152,11 @@ namespace Learn_01
         [TestTraits(Trait.IfStatements)]
         public void If_Nullable_Property_IsNull_PropertyMatching()
         {
-            var customer = GetCustomer();
+            Customer customer = GetCustomer();
+            
+            Assert.IsTrue(customer is not null);
+            Assert.IsFalse(customer is null);
+            
             customer.Value = 9;
 
            
@@ -116,7 +168,10 @@ namespace Learn_01
             /*
              * assert Value is null -
              * Karen note, everyone on the team must understand this syntax else
-             * don't use it, instead use .HasValue or is [not] null
+             * don't use it,
+             *
+             * instead use .HasValue or is [not] null as shown a few lines donw
+             *
              */
             Assert.IsTrue(customer.Value is { }, "Expected not null");
 
@@ -142,6 +197,7 @@ namespace Learn_01
             Assert.IsTrue(customer.IsNull());
 
             // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
             if (customer is { })
             {
                 Debug.WriteLine("Customer is null");
@@ -151,18 +207,17 @@ namespace Learn_01
                 Debug.WriteLine("Customer is not null");
             }
 
+            /*
+             * Same as last assertion using a ternary operator
+             */
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            Debug.WriteLine(customer is { } ? 
+                "Customer is null" : 
+                "Customer is not null");
+
+
             Assert.IsFalse(customer is { });
 
-            // ReSharper disable once ExpressionIsAlwaysNull
-            switch (customer)
-            {
-                case { }:
-                    Debug.WriteLine("Customer is null");
-                    break;
-                default:
-                    Debug.WriteLine("Customer is not null");
-                    break;
-            }
         }
 
         /// <summary>
@@ -190,6 +245,10 @@ namespace Learn_01
         [TestTraits(Trait.IfStatements)]
         public void If_All()
         {
+            
+            /*
+             * local method where the average developer knows nothing about local methods/functions
+             */
             bool validator(int[] numbers)
             {
                 foreach (var value in numbers)
@@ -200,13 +259,26 @@ namespace Learn_01
                 return false;
 
             }
+            
             int[] numbersArray = { 1, 11, 3, 19, 41, 65, 19 };
 
            
+            /*
+             * Hand write out the logic
+             */
             Assert.IsTrue(numbersArray.All(item => item % 2 == 1));
             
-            Assert.IsTrue(validator(numbersArray));
+            /*
+             * Using an extension method which is reusable
+             */
+            Assert.IsTrue(numbersArray.All(item => item.IsOdd()));
             
+            Assert.IsTrue(validator(numbersArray));
+
+
+            numbersArray = new []{ 1, 12, 3, 19, 41, 65, 19 };
+            Assert.IsFalse(numbersArray.All(item => item % 2 == 1));
+
         }
 
         
@@ -285,6 +357,9 @@ namespace Learn_01
             CollectionAssert.AreEqual(expected, result.ToArray());
 
         }
+        
+        
+        
 
     }
 }
