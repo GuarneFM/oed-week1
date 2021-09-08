@@ -4,7 +4,9 @@ Class [Pre-check](#Check-List)
 
 Various [Notes](#Notes)
 
-Code [samples](#code=samples)
+[Documentation](#Documentation)
+
+
 
 
 
@@ -24,7 +26,7 @@ Any questions contact Karen Payne
 
 Anything to make note of goes here
 
-# Code samples
+# Documentation
 
 | Operators  | Defintion|
 | :--- |:--- |
