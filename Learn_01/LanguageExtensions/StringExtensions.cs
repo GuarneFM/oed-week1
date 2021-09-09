@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 
 namespace Learn_01.LanguageExtensions
 {
@@ -29,6 +30,10 @@ namespace Learn_01.LanguageExtensions
             var value = sender[columnName];
             return value == DBNull.Value ? default : (T)value;
         }
+
+        public static char LastChar(this string sender) => sender[^1];
+        public static char FileNameLastChar(this string file) => Path.GetFileNameWithoutExtension(file)[^1];
+        public static bool FileNameLastCharIsDigit(this string file) => char.IsDigit(file.FileNameLastChar());
 
     }
 }

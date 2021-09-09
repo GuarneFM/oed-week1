@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using ContainerLibrary.Classes;
 using ContainerLibrary.HelperClasses;
 using Learn_01.Classes;
+using Learn_01.LanguageExtensions;
 
 
 // ReSharper disable once CheckNamespace - do not change
@@ -34,7 +35,7 @@ namespace Learn_01
                      * Using an indexer to get the last char and assert if a number
                      * ^ (hat) means to index from end of the string, this is new to C# 8
                      */
-                    if (char.IsDigit(Path.GetFileNameWithoutExtension(file)[^1]))
+                    if (file.FileNameLastCharIsDigit())
                     {
                         File.Delete(file); // for a real app we would use a try/catch
                     }
