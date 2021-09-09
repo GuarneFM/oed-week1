@@ -10,6 +10,11 @@ namespace Learn_01.LanguageExtensions
     /// </summary>
     public static class StringExtensions
     {
+        public static string TrimLastCharacter(this string sender) =>
+            string.IsNullOrWhiteSpace(sender) ?
+                sender :
+                sender.TrimEnd(sender[^1]);
+
         /// <summary>
         /// Determine if string is empty
         /// </summary>
@@ -32,8 +37,20 @@ namespace Learn_01.LanguageExtensions
         }
 
         public static char LastChar(this string sender) => sender[^1];
+        
         public static char FileNameLastChar(this string file) => Path.GetFileNameWithoutExtension(file)[^1];
         public static bool FileNameLastCharIsDigit(this string file) => char.IsDigit(file.FileNameLastChar());
 
+        /// <summary>
+        /// Get file name only, avoid multiple file extensions e.g. DirectoryGetFilesMultipleFilters.deps.json
+        /// </summary>
+        /// <param name="sender">Valid path and file name</param>
+        /// <param name="stopper">Character to end at</param>
+        /// <returns>File name without any extensions</returns>
+        /// <remarks>
+        /// Nada exception handling, mess it up, got an idea to improve it, go forth and do good things.
+        /// </remarks>
+        public static string UpTo(this string sender, string stopper = ".")
+            => sender.Substring(0, Math.Max(0, sender.IndexOf(stopper, StringComparison.Ordinal)));
     }
 }

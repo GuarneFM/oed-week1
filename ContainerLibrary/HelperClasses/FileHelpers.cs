@@ -14,11 +14,11 @@ namespace ContainerLibrary.HelperClasses
         /// <returns>IEnumerable&lt;string[]&gt;</returns>
         public static IEnumerable<string[]> ChunkLines(string fileName, int chunkByLines)
         {
-            if (chunkByLines <= 0) throw new ArgumentOutOfRangeException(nameof(chunkByLines));
+            if ( chunkByLines <= 0 ) throw new ArgumentOutOfRangeException(nameof(chunkByLines));
 
             using var reader = new StreamReader(fileName);
 
-            while (!reader.EndOfStream)
+            while ( !reader.EndOfStream )
             {
                 var set = new List<string>();
 
