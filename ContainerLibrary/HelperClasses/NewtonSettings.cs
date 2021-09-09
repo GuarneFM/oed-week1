@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ContainerLibrary.Classes
+namespace ContainerLibrary.HelperClasses
 {
     /// <summary>
     /// Setting for serializing with Json.net

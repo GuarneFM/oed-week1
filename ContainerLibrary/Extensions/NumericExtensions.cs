@@ -21,5 +21,17 @@ namespace ContainerLibrary.Extensions
         /// <param name="sender">Int to work against</param>
         /// <returns>True if odd, false if even</returns>
         public static bool IsOdd(this int sender) => !IsEven(sender);
+
+        public static (int major, decimal fraction) GetParts(this double sender)
+        {
+            decimal fraction = (decimal)sender;
+            int majorPart = (int)fraction;
+            decimal decimalPart = fraction % 1.0m;
+
+            return (majorPart, decimalPart);
+        }
+
+        public static int GetMajor(this decimal sender) 
+            => (int)sender;
     }
 }

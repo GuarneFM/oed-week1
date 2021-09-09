@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace ContainerLibrary.Classes
+namespace ContainerLibrary.HelperClasses
 {
     /// <summary>
     /// Provides serializing operation methods
     /// </summary>
-    public static class Helpers
+    public static class JsonHelpers
     {
         /// <summary>
         /// Convert &lt;see cref="TModel"/&gt; to json file

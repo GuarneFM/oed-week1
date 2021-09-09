@@ -9,7 +9,9 @@ namespace Learn_01.Base
     {
         PlaceHolder,
         IfStatements,
-        ForSimpleStatements
+        ForSimpleStatements,
+        KarenTinkering,
+        WhileStatements
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

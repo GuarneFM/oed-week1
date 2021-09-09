@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ContainerLibrary.Classes;
+using ContainerLibrary.HelperClasses;
 using Learn_01.Classes;
 
 
@@ -22,9 +23,22 @@ namespace Learn_01
         public void Initialization()
         {
             Mocking.Initialization();
-            if (TestContext.TestName == nameof(Simple_If_Statement_2))
+            
+            if (TestContext.TestName == nameof(WhileChunking))
             {
-                // TODO
+                var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+
+                foreach (var file in Directory.GetFiles(path))
+                {
+                    /*
+                     * Using an indexer to get the last char and assert if a number
+                     * ^ (hat) means to index from end of the string, this is new to C# 8
+                     */
+                    if (char.IsDigit(Path.GetFileNameWithoutExtension(file)[^1]))
+                    {
+                        File.Delete(file); // for a real app we would use a try/catch
+                    }
+                }
             }
         }
 
@@ -58,7 +72,7 @@ namespace Learn_01
         /// </summary>
         /// <returns></returns>
         public static (List<IccTran> transactionList, Exception exception) ReadIccTransactionRecordsFromFile() =>
-            Helpers.JsonToListModel<IccTran>(TransactionJsonFile);
+            JsonHelpers.JsonToListModel<IccTran>(TransactionJsonFile);
 
         /// <summary>
         /// Demonstrates <see cref="Enumerable.Any"/>
