@@ -6,7 +6,7 @@ When there is a `code snipplet` as shown below note the `copy to clipboard` butt
 
 # Single character variables
 
-:red_circle: Use sparingly, e.g. in a small, tight for or while statement, otherwise give variables meaningful names.
+:red_circle: Use sparingly, e.g. in a small, tight `for` or `while` statement, otherwise give variables meaningful names.
 
 **Acceptable**
 
@@ -19,7 +19,7 @@ foreach (var c in firstName)
 }
 ```
 
-**Not acceptable** to use one character variables in code such as this which is why there are no one character variables.
+**Not acceptable** to use one character variables in code such as this which is why there are `no one character` variables.
 
 ```csharp
 public static List<StudentEntity> GradesForPeople(int courseIdentifier)
@@ -101,7 +101,7 @@ foreach (var indexedItem in lettersIndexed)
 }
 ```
 
-### Using a generic extension method with an anonymous type
+### Using a generic extension method `ForEach` with an anonymous type
 
 
 ```csharp
@@ -116,8 +116,70 @@ var lettersIndexed = firstName
 
 lettersIndexed.ToList().ForEach(indexedItem => Debug.WriteLine($"{indexedItem.Index} {indexedItem.Char}"));
 ```
+</br>
+
+### Strongly typed version of the above
+
+In the following code sample
+
+- `static class Extensions` belows in a separate class file
+- `class CharIndexed` belows in a separate class file
+
+| They are in the same file why? |
+| :--- |
+| When developing code we can place everything in the same file, get it to work. Once working, place (in this case) Extensions class and CharIndexed into a class project. Next, in a unit test project test the heck out of the extension method. |
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using PlayGroundConsoleNetCoreApp.Classes;
+using PlayGroundNetClassLibrary.Classes;
+
+namespace PlayGroundConsoleNetCoreApp
+{
+
+    partial class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            string firstName = "Karen";
+            var lettersIndexed = firstName
+                .Select((@char, index) => new CharIndexed {Char = @char, Index = index});
 
 
+            lettersIndexed.ToList().ForEach(indexedItem 
+                => Debug.WriteLine($"{indexedItem.Index} {indexedItem.Char}"));
+            
+            Debug.WriteLine("");
+            
+            firstName.Indexed().ForEach(indexedItem 
+                => Debug.WriteLine($"{indexedItem} "));
+        }
+    }
+
+    public static class Extensions
+    {
+        public static List<CharIndexed> Indexed(this string sender) 
+            => sender.Select((@char, index) => 
+                new CharIndexed { Char = @char, Index = index }).ToList();
+
+    }
+    public class CharIndexed
+    {
+        public char Char { get; set; }
+        public int Index { get; set; }
+
+        public override string ToString()
+        {
+            return $"{{ Char = {Char}, Index = {Index} }}";
+        }
+    }
+}
+
+```
 
 
 
@@ -237,4 +299,12 @@ firstName = "K a r e n";
 Debug.WriteLine(firstName.RemoveAllWhiteSpace());
 ```
 
+</br>
 
+
+| ![image](assets/GitLearn1.png)  |
+| :--- |
+| Get use to working with [GitHub commits](https://docs.microsoft.com/en-us/learn/modules/visual-studio-github-push/) and [stashing](https://www.thomasclaudiushuber.com/2019/04/10/the-git-stash-functionality-in-visual-studio-2019/) for starters |
+| |
+
+![image](assets/DeleteCode.png)
