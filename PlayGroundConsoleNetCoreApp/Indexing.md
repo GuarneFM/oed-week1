@@ -214,6 +214,37 @@ Debug.WriteLine($"{firstName[^1]}");
 
 The old way is good for regular indexing while using a `Index` can be of benefit for travering in reverse.
 
+# Get last seven characters
+
+```csharp
+// hard wired to get last 7 characters
+string firstName = "Karen Anne";
+firstName = firstName[^7..]; //Equivalent of input[^7..^0]
+Debug.WriteLine(firstName); 
+
+
+// variable method to get last 7 characters
+firstName = "Karen Anne";
+int indexer = 7;
+if (firstName.Length <= 10)
+{
+    Range range = ^indexer..^0;
+    Debug.WriteLine(firstName[range]);
+}
+```
+
+# Get all characters excluding the last character
+
+```csharp
+firstName = "Karen Anne";
+firstName = firstName[..^1]; //Equivalent of input[0..^1], all chars except last character
+Debug.WriteLine(firstName); 
+```
+The following will produce the same results as the last code block while being informed `0..` is not needed.
+
+![image](assets/NotNeeded.png)
+
+
 # Removing characters from end to start
 
 Since this could be something which may be needed more than once let's use a [language extension](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods).
@@ -242,7 +273,7 @@ while (!string.IsNullOrWhiteSpace(firstName))
 }
 ```
 
-To rmove characters from start to end we use a generic extension method [Reverse](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.reverse?view=net-5.0).
+To remove characters from start to end we use a generic extension method [Reverse](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.reverse?view=net-5.0).
 
 ```csharp
 IEnumerable<char> charSequence = firstName.Reverse();
@@ -300,6 +331,101 @@ Debug.WriteLine(firstName.RemoveAllWhiteSpace());
 ```
 
 </br>
+
+# What about array?
+
+First off, the classes belong in their own files.
+
+Karen will walk you through this code.
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
+using PlayGroundConsoleNetCoreApp.Classes;
+using PlayGroundNetClassLibrary.Classes;
+
+namespace PlayGroundConsoleNetCoreApp
+{
+    partial class Program
+    {
+
+        static void Main(string[] args)
+        {
+            var russianMonthNames = CultureHelpers.RussianMonthNames();
+
+            // get last six months of the year
+            var lastSixMonthsVietnamese = russianMonthNames.ToArray()[^7..];
+
+            // month names
+            foreach (var result in lastSixMonthsVietnamese)
+            {
+                Debug.WriteLine(result);
+            }
+            
+            Debug.WriteLine("Month name and month index");
+
+            /*
+             * Proof of concept which is why the last .ToList and .ForEach
+             *
+             * Note x.Index,-5:D2 means pad right 5 chars, place leading zero's on index
+             */
+            lastSixMonthsVietnamese
+                .ToList()
+                .Select((name, index) => new { Name = name, Index = index +6 })
+                .ToList()
+                .ForEach(x => Debug.WriteLine($"{x.Index,-5:D2}{x.Name}"));
+            
+        }
+    }
+}
+
+public class CultureHelpers
+{
+    /// <summary>
+    /// Get all known cultures on the current machine
+    /// </summary>
+    public static List<CultureItem> GetAllCultureItems
+        => CultureInfo
+            .GetCultures(CultureTypes.AllCultures)
+            .OrderBy(cultureInfo => cultureInfo.EnglishName)
+            .Select(culture => new CultureItem {EnglishName = culture.EnglishName, Name = culture.Name})
+            .ToList();
+    /// <summary>
+    /// Returns a string list of month names for the current culture
+    /// </summary>
+    /// <returns>
+    /// List of month names for current culture
+    /// </returns>
+    public static List<string> MonthNames() =>
+        Enumerable.Range(1, 12)
+            .Select((index) => DateTimeFormatInfo.CurrentInfo.GetMonthName(index))
+            .ToList();
+
+
+    public static List<string> RussianMonthNames() =>
+        Enumerable.Range(1, 12)
+            .Select((index) => new CultureInfo("ru-RU").DateTimeFormat.GetMonthName(index))
+            .ToList();
+
+    public static List<string> VietnameseMonthNames() =>
+        Enumerable.Range(1, 12)
+            .Select((index) => new CultureInfo("vi").DateTimeFormat.GetMonthName(index))
+            .ToList();
+}
+    public class CultureItem
+    {
+        public string EnglishName { get; set; }
+        public string Name { get; set; }
+        public override string ToString() => $"{Name,-20}{EnglishName}";
+
+    }
+```
+
+
+
 
 
 | ![image](assets/GitLearn1.png)  |
