@@ -2,7 +2,7 @@
 
 :red_circle: Use sparingly, e.g. in a small, tight for or while statement, otherwise give variables meaningful names.
 
-Acceptable
+**Acceptable**
 
 ```csharp
 string firstName = "Karen";
@@ -13,7 +13,7 @@ foreach (var c in firstName)
 }
 ```
 
-Not acceptable to use one character variables in code such as this which is why there are no one character variables.
+**Not acceptable** to use one character variables in code such as this which is why there are no one character variables.
 
 ```csharp
 public static List<StudentEntity> GradesForPeople(int courseIdentifier)
@@ -125,7 +125,7 @@ lettersIndexed.ToList().ForEach(indexedItem => Debug.WriteLine($"{indexedItem.In
 **Get second character**
 
 ```csharp
-Debug.WriteLine($"{firstName[0]}");
+Debug.WriteLine($"{firstName[1]}");
 ```
 
 ## Get last character
