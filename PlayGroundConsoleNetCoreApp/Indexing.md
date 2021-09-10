@@ -125,6 +125,7 @@ To rmove characters from start to end we use a generic extension method [Reverse
 ```csharp
 IEnumerable<char> charSequence = firstName.Reverse();
 firstName = new string(charSequence.ToArray());
+
 while (!string.IsNullOrWhiteSpace(firstName))
 {
     firstName = firstName.TrimLastCharacter();
@@ -142,6 +143,7 @@ Not as simple as it may sound
 
 ```csharp
 firstName = "K a r e n";
+
 firstName = firstName
     .ToCharArray()
     .Where(character => !char.IsWhiteSpace(character)).Select(c => c.ToString())
