@@ -52,5 +52,7 @@ namespace Learn_01.LanguageExtensions
         /// </remarks>
         public static string UpTo(this string sender, string stopper = ".")
             => sender.Substring(0, Math.Max(0, sender.IndexOf(stopper, StringComparison.Ordinal)));
+        
+        
     }
 }
