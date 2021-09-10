@@ -136,7 +136,7 @@ while (!string.IsNullOrWhiteSpace(firstName))
 - When you believe it's better make sure to fully test code with small and large strings alike Karen is an advocate of unit testing.
 
 
-# Remove all white space from a string
+# Remove all white space from start of a string
 
 Not as simple as it may sound
 
