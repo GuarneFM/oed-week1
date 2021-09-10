@@ -70,19 +70,23 @@ lettersIndexed.ToList().ForEach(indexedItem => Debug.WriteLine($"{indexedItem.In
 
 **Get second character**
 
-- Debug.WriteLine($"{firstName[0]}");
-
+```csharp
+Debug.WriteLine($"{firstName[0]}");
+```
 
 ## Get last character
 
 Old way to index to last character being zero based we need .Length -1
 
-- Debug.WriteLine($"\{firstName[firstName.Length -1]}");
-
+```csharp
+Debug.WriteLine($"\{firstName[firstName.Length -1]}");
+```
 
 New way we have an [Index Struct](https://docs.microsoft.com/en-us/dotnet/api/system.index?view=net-5.0) which makes life easier
 
-- Debug.WriteLine($"{firstName`[^1]`}");
+```csharp
+Debug.WriteLine($"{firstName`[^1]`}");
+```
 
 **Note**
 
