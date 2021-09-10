@@ -1,4 +1,10 @@
-﻿# Single character variables
+﻿# Copy code in repository
+
+When there is a `code snipplet` as shown below note the `copy to clipboard` button.
+
+![image](assets/CopyCode.png)
+
+# Single character variables
 
 :red_circle: Use sparingly, e.g. in a small, tight for or while statement, otherwise give variables meaningful names.
 
