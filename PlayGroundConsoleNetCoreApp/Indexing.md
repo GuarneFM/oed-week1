@@ -434,3 +434,15 @@ public class CultureHelpers
 | |
 
 ![image](assets/DeleteCode.png)
+
+</br>
+
+# Resources
+
+- [C# 8 Ranges and Indices in detail](https://github.com/karenpayneoregon/indexes-ranges-csharp)
+- [Range examples](https://github.com/karenpayneoregon/csharp-features/tree/master/Ranges-examples)
+- [Index Struct](https://docs.microsoft.com/en-us/dotnet/api/system.index?view=net-5.0&ns-enrollment-id=zkrzs51k3wq5x2&viewFallbackFrom=net-5.0%3Fns-enrollment-type%3DCollection)
+- [Range Struct](https://docs.microsoft.com/en-us/dotnet/api/system.range?view=net-5.0)
+- [char](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char) (C# reference)
+- [String Class](https://docs.microsoft.com/en-us/dotnet/api/system.string?view=net-5.0)
+- [Structure types](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct) (C# reference)
