@@ -19,8 +19,6 @@ namespace PlayGroundConsoleNetCoreApp
              */
             string firstName = "Karen";
 
-
         }
-
     }
 }

@@ -2,6 +2,60 @@
 
 :red_circle: Use sparingly, e.g. in a small, tight for or while statement, otherwise give variables meaningful names.
 
+Acceptable
+
+```csharp
+string firstName = "Karen";
+
+foreach (var c in firstName)
+{
+    Debug.WriteLine(c);
+}
+```
+
+Not acceptable to use one character variables in code such as this which is why there are no one character variables.
+
+```csharp
+public static List<StudentEntity> GradesForPeople(int courseIdentifier)
+{
+
+    using var context = new SchoolContext();
+
+    List<StudentEntity> studentEntities = context
+        .StudentGrade
+        .Include(studentEntity => studentEntity.Student)
+        .Select(StudentGrade.Projection)
+        .Where(studentEntity => studentEntity.CourseID == courseIdentifier)
+        .ToList();
+
+    foreach (var entity in studentEntities)
+    {
+        var letterGrade = entity.Grade.Value switch
+        {
+            >= 1.00m and <= 2.00m => "F",
+            2.50m => "C",
+            3.00m => "B",
+            3.50m => "A",
+            4.00m => "A+",
+            _ => "unknown",
+        };
+
+        OnIteratePersonGradesEvent?.Invoke(new PersonGrades()
+        {
+            PersonID = entity.PersonID,
+            FirstName = entity.FirstName,
+            LastName = entity.LastName,
+            Grade = entity.Grade,
+            GradeLetter = letterGrade
+        });
+
+    }
+
+    return studentEntities;
+
+}
+```        
+
 # Interating characters in a string
 
 
