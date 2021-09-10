@@ -85,7 +85,7 @@ Debug.WriteLine($"\{firstName[firstName.Length -1]}");
 New way we have an [Index Struct](https://docs.microsoft.com/en-us/dotnet/api/system.index?view=net-5.0) which makes life easier
 
 ```csharp
-Debug.WriteLine($"{firstName`[^1]`}");
+Debug.WriteLine($"{firstName[^1]}");
 ```
 
 **Note**
