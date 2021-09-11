@@ -13,11 +13,11 @@ namespace PlayGroundConsoleNetCoreApp
 
         static void Main(string[] args)
         {
-            //IndexString();
-            //RemoveAllSpaces();
-            //WorkingWithRanges();
-            //StringArraysLastSixMonths();
-            //AllCultureOnCurrentMachine();
+            IndexString();
+            RemoveAllSpaces();
+            WorkingWithRanges();
+            StringArraysLastSixMonths();
+            AllCultureOnCurrentMachine();
             RandomInts();
         }
 
