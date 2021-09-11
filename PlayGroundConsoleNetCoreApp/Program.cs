@@ -1,10 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 
-using PlayGroundConsoleNetCoreApp.Classes;
 
 namespace PlayGroundConsoleNetCoreApp
 {
@@ -13,13 +13,20 @@ namespace PlayGroundConsoleNetCoreApp
 
         static void Main(string[] args)
         {
-            
-            IndexString();
-            RemoveAllSpaces();
-            WorkingWithRanges();
-            StringArraysLastSixMonths();
+
+            //IndexString();
+            //RemoveAllSpaces();
+            //WorkingWithRanges();
+            //StringArraysLastSixMonths();
             //AllCultureOnCurrentMachine();
-            RandomInts();
+            //RandomInts();
+
+
+
+            Console.ReadLine();
+
+
+
         }
 
     }

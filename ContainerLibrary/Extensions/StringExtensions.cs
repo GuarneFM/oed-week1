@@ -13,6 +13,15 @@ namespace ContainerLibrary.Extensions
     public static class StringExtensions
     {
         /// <summary>
+        /// Determines whether two specified String objects have the same value, case insensitive.
+        /// </summary>
+        /// <param name="first">The first string to compare, or null.</param>
+        /// <param name="second">The second string to compare, or null.</param>
+        /// <returns>true if the value of first is the same as the value of second; otherwise, false. If both first and second are null, the method returns true.</returns>
+        public static bool EqualsIgnoreCase(this string first, string second) =>
+            string.Equals(first, second, StringComparison.OrdinalIgnoreCase);
+        
+        /// <summary>
         /// Determine if string is empty
         /// </summary>
         /// <param name="sender">String to test if null or whitespace</param>
@@ -27,6 +36,23 @@ namespace ContainerLibrary.Extensions
         [DebuggerStepThrough]
         public static bool IsNumeric(this string text) => double.TryParse(text, out _);
 
+        /// <summary>
+        /// Get value from a DataReader by column name, if value for column is DBNull then
+        /// return the default value for the type
+        ///
+        /// e.g.
+        /// bool is false
+        /// char is '\0'
+        /// 
+        /// integral numeric types represent integer numbers is 0
+        /// The floating-point numeric types represent real numbers is 0
+        /// Reference types (object or string for instance) null
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sender"></param>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
         public static T GetValue<T>(this IDataReader sender, string columnName)
         {
             var value = sender[columnName];
