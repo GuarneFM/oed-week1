@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using ContainerLibrary.Extensions;
 using ContainerLibrary.HelperClasses;
@@ -35,8 +36,26 @@ namespace PlayGroundConsoleNetCoreApp
                 Debug.WriteLine($"{charItem.Index,5:D3} {(int)charItem.Char,5} {char.GetUnicodeCategory(charItem.Char),16}");
             }
 
-            Debug.WriteLine("");
+            Debug.WriteLine(new string('_', 30));
+            Debug.WriteLine($"Last char conventional 1 {_firstName.LastOrDefault()}");
+            
+            // ReSharper disable once UseIndexFromEndExpression
+            Debug.WriteLine($"Last char conventional 2 {_firstName[_firstName.Length -1]}");
+            
+            /*
+             * Indexer and assertion
+             */
+            if (_firstName.Length - 1 >= 0 && _firstName.Length > _firstName.Length - 1)
+            {
+                Debug.WriteLine($"           Last char new {_firstName[^1]}");
+            }
 
+            Debug.WriteLine($"            Next to last {_firstName[^2]}");
+            Debug.WriteLine(new string('‾', 30));
+            Debug.WriteLine("");
+            
+            
+            
         }
 
         static void RemoveAllSpaces()
@@ -63,6 +82,7 @@ namespace PlayGroundConsoleNetCoreApp
         static void WorkingWithRanges()
         {
 
+            Debug.WriteLine("");
             Debug.WriteLine($"{nameof(WorkingWithRanges)} running");
 
             var firstName = FullFirstName;
@@ -140,14 +160,16 @@ namespace PlayGroundConsoleNetCoreApp
         static void RandomInts()
         {
 
-            Debug.WriteLine($"{nameof(AllCultureOnCurrentMachine)} running");
+            Debug.WriteLine($"{nameof(RandomInts)} running");
+
+            Debug.WriteLine("");
 
             var rand = new Random();
             List<int> listNumbers = new List<int>();
-            int number;
+
             for (int index = 0; index < 20; index++)
             {
-
+                int number;
                 do
                 {
                     number = rand.Next(1, 49);
@@ -156,14 +178,21 @@ namespace PlayGroundConsoleNetCoreApp
                 listNumbers.Add(number);
             }
 
-            foreach (var listNumber in listNumbers.OrderBy(value => value))
-            {
-                Debug.WriteLine(listNumber.ToString("D2"));
-            }
+            Debug.WriteLine(string.Join(",", listNumbers));
 
             Debug.WriteLine("");
         }
 
+        /// <summary>
+        /// Execute as first code 
+        /// </summary>
+        [ModuleInitializer]
+        public static void Howdy()
+        {
+            Debug.WriteLine(new string('_', 30));
+            Debug.WriteLine($"{"KarenPayne".SplitCamelCase()} ¯\\_(ツ)_/¯");
+            Debug.WriteLine(new string('‾', 30));
+        }
     }
 
 }

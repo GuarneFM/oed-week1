@@ -4,6 +4,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ContainerLibrary.Classes;
 
@@ -43,5 +44,9 @@ namespace ContainerLibrary.Extensions
                 .ToCharArray().Where(character => !char.IsWhiteSpace(character))
                 .Select(c => c.ToString()).Aggregate((value1, value2) => value1 + value2);
 
+        public static string SplitCamelCase(this string sender) 
+            => Regex.Replace(Regex.Replace(sender, 
+                "(\\P{Ll})(\\P{Ll}\\p{Ll})", "$1 $2"), 
+                "(\\p{Ll})(\\P{Ll})", "$1 $2");
     }
 }
