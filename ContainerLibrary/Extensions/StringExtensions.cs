@@ -5,12 +5,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ContainerLibrary.Classes;
 
-namespace PlayGroundNetClassLibrary.LanguageExtensions
+namespace ContainerLibrary.Extensions
 {
-    /// <summary>
-    /// Common string extensions 
-    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
@@ -33,6 +31,17 @@ namespace PlayGroundNetClassLibrary.LanguageExtensions
             var value = sender[columnName];
             return value == DBNull.Value ? default : (T)value;
         }
+        public static List<CharIndexed> Indexed(this string sender)
+            => sender.Select((@char, index) =>
+                new CharIndexed { Char = @char, Index = index }).ToList();
+
+        public static string TrimLastCharacter(this string sender)
+            => string.IsNullOrWhiteSpace(sender) ? sender : sender.TrimEnd(sender[^1]);
+
+        public static string RemoveAllWhiteSpace(this string sender)
+            => sender
+                .ToCharArray().Where(character => !char.IsWhiteSpace(character))
+                .Select(c => c.ToString()).Aggregate((value1, value2) => value1 + value2);
 
     }
 }

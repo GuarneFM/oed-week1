@@ -72,8 +72,9 @@ namespace Learn_01
         /// Can also be a full method body
         /// </summary>
         /// <returns></returns>
-        public static (List<IccTran> transactionList, Exception exception) ReadIccTransactionRecordsFromFile() =>
-            JsonHelpers.JsonToListModel<IccTran>(TransactionJsonFile);
+        public static (List<IccTran> transactionList, Exception exception) ReadIccTransactionRecordsFromFile() 
+            => JsonHelpers.JsonToListModel<IccTran>(TransactionJsonFile);
+
 
         /// <summary>
         /// Demonstrates <see cref="Enumerable.Any"/>

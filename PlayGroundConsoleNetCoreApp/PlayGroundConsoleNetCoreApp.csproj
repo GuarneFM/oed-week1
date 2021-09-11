@@ -10,6 +10,6 @@
     <None Remove="Console projects\**" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayGroundNetClassLibrary\PlayGroundNetClassLibrary.csproj" />
+    <ProjectReference Include="..\ContainerLibrary\ContainerLibrary.csproj" />
   </ItemGroup>
 </Project>

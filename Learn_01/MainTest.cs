@@ -11,7 +11,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ContainerLibrary.Extensions;
 using ContainerLibrary.HelperClasses;
 using Learn_01.Classes;
-using Learn_01.LanguageExtensions;
 using static ContainerLibrary.MockedEntities;
 
 namespace Learn_01
@@ -42,6 +41,7 @@ namespace Learn_01
 
             foreach (var iccTran in results)
             {
+
                 if (iccTran.TrPin == "0003")
                 {
                     countForPin += 1;
@@ -349,12 +349,12 @@ namespace Learn_01
             {
 
                 var transResults = transactionList
-                    .Where(item => 
-                        item.TrGeoLongitude.HasValue && 
+                    .Where(item =>
+                        item.TrGeoLongitude.HasValue &&
                         item.TrGeoLongitude.Value.GetMajor().Between(-155, -149));
 
                 //  analyzer does not know it all
-                if (transResults.Count() >0)
+                if (transResults.Count() > 0)
                 {
                     IOrderedEnumerable<IccTran> results = transResults.OrderBy(x => x.TrGeoLongitude);
 
@@ -363,7 +363,7 @@ namespace Learn_01
                         Console.WriteLine(iccTran.TrGeoLongitude);
                     }
                 }
-                
+
                 Assert.AreEqual(transResults.Count(), 4);
 
             }
@@ -414,7 +414,7 @@ namespace Learn_01
             var index = 0;
 
             var monthNames = Mocked.EnglishMonthList;
-            
+
             do
             {
                 Console.WriteLine(monthNames[index]);
