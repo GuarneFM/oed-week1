@@ -10,7 +10,10 @@ namespace ContainerLibrary.Classes
         public string LastName { get; set; }
         public DateTime HireDate { get; set; }
         public int CountryIdentifier { get; set; }
+        public int YearOfBirth { get; set; }
         public string FullName => $"{FirstName} {LastName}";
         public override string ToString() => $"{Id} {FullName}";
     }
+
+ 
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContainerLibrary.Classes
 {
-    public enum Country
+    public enum CountryEnum
     {
         USA,
         Canada,

@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ContainerLibrary.Classes
 {
+    /// <summary>
+    /// For working with switches 
+    /// </summary>
     public static class EnvironmentData
     {
         public static string UserID { get; set; }

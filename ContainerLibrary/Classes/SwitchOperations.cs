@@ -10,7 +10,7 @@ namespace ContainerLibrary.Classes
     public class SwitchOperations
     {
         /// <summary>
-        /// 
+        /// Conventional switch
         /// </summary>
         /// <returns></returns>
         /// <remarks>
@@ -65,8 +65,7 @@ namespace ContainerLibrary.Classes
         {
             EnvironmentData.UserAddress = EnvironmentData.CostCenter switch
             {
-                var value when value.InCondition("043", "044") =>
-                "875 Union Street NE * SALEM, OR  97311\r\n(503) 947-1669 or Fax (503) 947-1668\r\n",
+                var value when value.InCondition("043", "044") => InValue,
                 "040" => "P O BOX 14135 * SALEM, OR  97309-5068\r\n(877) 345 - 3484 or Fax(503) 947 - 1335\r\n",
                 "042" => "875 Union Street NE * SALEM, OR  97311\r\n(503) 947-1669 or Fax (503) 947-1668\r\n",
                 "045" => "PO BOX 14518 * Salem, Oregon  97309\r\n(800) 436-6191 or Fax (877) 353-7700\r\n",
@@ -81,6 +80,8 @@ namespace ContainerLibrary.Classes
             };
 
         }
+
+        public static string InValue => "875 Union Street NE * SALEM, OR  97311\r\n(503) 947-1669 or Fax (503) 947-1668\r\n";
 
         public static string ExpressionBodiedMemberBasic_1(string value) => value switch
         {
@@ -117,18 +118,27 @@ namespace ContainerLibrary.Classes
         };
 
 
-        public static (string Capital, string Fact) ExtractCountryDetails(Country value)
+        public static (string Capital, string Fact) ExtractCountryDetails1(CountryEnum value)
         {
             (string capital, string fact) = value switch
             {
-                Country.Canada => ("Ottawa", "Is home to 26 Sons of Norway lodges."),
-                Country.Mexico => ("Mexico City", "Is home to the world's largest pyramid"),
-                Country.USA    => ("Washington", " Has The 4th Longest River System In The World"),
-                _              => ("capital ???", "fact ??? ")
+                CountryEnum.Canada => ("Ottawa", "Is home to 26 Sons of Norway lodges."),
+                CountryEnum.Mexico => ("Mexico City", "Is home to the world's largest pyramid"),
+                CountryEnum.USA    => ("Washington", " Has The 4th Longest River System In The World"),
+                _                  => ("capital ???", "fact ??? ")
             };
+            
             return (capital, fact);
         }
 
+        public static (string Capital, string Fact) ExtractCountryDetails(CountryEnum value) =>  value switch
+        {
+            CountryEnum.Canada => ("Ottawa", "Is home to 26 Sons of Norway lodges."),
+            CountryEnum.Mexico => ("Mexico City", "Is home to the world's largest pyramid"),
+            CountryEnum.USA => ("Washington", " Has The 4th Longest River System In The World"),
+            _ => ("capital ???", "fact ??? ")
+        };
+        
     }
 
 }

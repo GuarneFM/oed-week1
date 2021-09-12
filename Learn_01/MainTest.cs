@@ -96,6 +96,81 @@ namespace Learn_01_Week_2
         }
 
         [TestMethod]
+        [TestTraits(Trait.PlaceHolder)]
+        public void PatternMatching_1()
+        {
+            void Conventional(object personObject)
+            {
+                // TODO match PatternMatching next
+            }
+            
+            void PatternMatching(object personObject)
+            {
+                /*
+                 * Assert personObject is a Developer and manager's first name is Anne
+                 */
+                if (personObject is Developer { Manager: { FirstName: "Anne" } } developerWithAnneAsManager)
+                {
+                    Debug.WriteLine($"CountryIdentifier is {developerWithAnneAsManager.CountryIdentifier}");
+                }
+
+                /*
+                 * Assert personObject is a Developer and manager's first name length is 4
+                 */
+                if (personObject is Developer { Manager: { FirstName: { Length: 4 } } } developerWithManagerFirstnameLengthOfFour)
+                {
+                    Debug.WriteLine($"Manager Years as manager is {developerWithManagerFirstnameLengthOfFour.Manager.YearsAsManager}");
+                }
+
+                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989 } devBornInEighties)
+                {
+                    Debug.WriteLine($"Year of birth {devBornInEighties.YearOfBirth}");
+                }
+
+                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989 and not 1984 } devBornInEighties1)
+                {
+                    Debug.WriteLine($"Not 1984 {devBornInEighties1.YearOfBirth}");
+                }
+
+
+                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989, Manager: var developersManager })
+                {
+                    Debug.WriteLine($"Manager's last name: {developersManager.LastName}");
+                }
+
+                if (personObject is Manager managerItem)
+                {
+                    Debug.WriteLine($"Manager first name is {managerItem.FirstName}");
+                }
+            }
+
+            Developer developer = new ()
+            {
+                FirstName = "Karen", 
+                YearOfBirth = 1986,
+                CountryIdentifier = 10, 
+                Manager = new Manager()
+                {
+                    FirstName = "Anne", 
+                    LastName = "Roberts",
+                    YearsAsManager = 4
+                }
+            };
+            
+            PatternMatching(developer);
+
+            Manager manager = new()
+            {
+                FirstName = "Karen",
+                CountryIdentifier = 10
+            };
+            
+            PatternMatching(manager);
+
+        }
+
+
+        [TestMethod]
         [TestTraits(Trait.IfStatements)]
         public void IfCustomerIsNull()
         {
@@ -512,7 +587,7 @@ namespace Learn_01_Week_2
             var expectedCapital = "Mexico City";
             var expectedFact    = "Is home to the world's largest pyramid";
             
-            var country = Country.Mexico;
+            var country = CountryEnum.Mexico;
             var (capital, fact) = SwitchOperations.ExtractCountryDetails(country);
 
             Assert.AreEqual(capital, expectedCapital);
