@@ -11,7 +11,10 @@ namespace Learn_01_Week_2.Base
         IfStatements,
         ForSimpleStatements,
         KarenTinkering,
-        WhileStatements
+        WhileStatements,
+        Between,
+        SelectSwitch,
+        SwitchExpressions
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.

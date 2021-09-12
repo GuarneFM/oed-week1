@@ -12,6 +12,7 @@ using Learn_01_Week_2.Classes;
 using Learn_01_Week_2.LanguageExtensions;
 
 
+// ReSharper disable once CheckNamespace
 namespace Learn_01_Week_2
 {
     public partial class MainTest

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -10,6 +10,7 @@ using ContainerLibrary.HelperClasses;
 using Learn_01_Week_2.Base;
 using Learn_01_Week_2.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static System.DateTime;
 using static ContainerLibrary.MockedEntities;
 
 namespace Learn_01_Week_2
@@ -334,7 +335,7 @@ namespace Learn_01_Week_2
         /// Testing with <see cref="NumericExtensions.GetMajor"/> and <see cref="GenericExtensions.Between"/>
         /// </summary>
         /// <remarks>
-        /// This is a half-baked test, missing null assertions
+        /// This is a half-baked test, missing null assertions - expect issues which we will work through ✍(◔◡◔)
         /// </remarks>
         [TestMethod]
         [TestTraits(Trait.KarenTinkering)]
@@ -368,6 +369,99 @@ namespace Learn_01_Week_2
             }
         }
 
+        [TestMethod]
+        [TestTraits(Trait.Between)]
+        public void BetweenListInt_Elements()
+        {
+            List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
+            List<int> expected = new List<int>() {2, 3, 4 };
+
+            List<int> items = list.BetweenElements(2, 4);
+            foreach (var item in items)
+            {
+                Debug.WriteLine(item);
+            }
+            
+            CollectionAssert.AreEqual(items, expected);
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.Between)]
+        public void BetweenTwoIntGeneric()
+        {
+
+
+            int item = 3;
+            
+            Assert.IsTrue(item.Between(2,4));
+
+            item = 12;
+            Assert.IsFalse(item.Between(2,4));
+            
+
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.Between)]
+        public void BetweenDateGeneric()
+        {
+            var startHour = Now.AddHours(-1);
+            var endHour = Now.AddHours(1);
+            
+            var start = new DateTime(Now.Year, Now.Month, Now.Day, startHour.Hour, 30, 0);
+            var end = new DateTime(Now.Year, Now.Month, Now.Day, endHour.Hour, 59, 0);
+
+            Debug.WriteLine($"{start}     {end}");
+            Debug.WriteLine(Now.Between(start,end));
+            
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.SelectSwitch)]
+        public void CaseWhenInt()
+        {
+            static void CaseWhen(int sender)
+            {
+                switch (sender)
+                {
+                    case { } value when (value >= 7):
+                        Debug.WriteLine($"I am 7 or above => {value}");
+                        break;
+
+                    case { } value when value.Between(4, 6):
+                        Debug.WriteLine($"I am between 4 and 6 => {value}");
+                        break;
+
+                    case { } value when (value.LessThan(3)):
+                        Debug.WriteLine($"I am 3 or less => {value}");
+                        break;
+                }
+            }
+
+            CaseWhen(5);
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.SwitchExpressions)]
+        public void EnvironDataCostCenter()
+        {
+            
+            EnvironmentData.CostCenter = "040";
+            EnvironmentOperations.ExpressionBodiedMember();
+            
+            var expected = "P O BOX 14135 * SALEM, OR  97309-5068(877) 345 - 3484 or Fax(503) 947 - 1335";
+            
+            Assert.AreEqual(EnvironmentData.UserAddress.Replace(Environment.NewLine, ""), expected);
+
+
+            expected = "875 Union Street NESalem, OR  97311(800) 237-3710, Fax to (866) 345-1878";
+            
+            EnvironmentData.CostCenter = "999";
+            EnvironmentOperations.ExpressionBodiedMember();
+            Assert.AreEqual(EnvironmentData.UserAddress.Replace(Environment.NewLine, ""), expected);
+
+        }
+        
 
         /// <summary>
         /// Demonstrates using .ForEach language extension rather tha a
