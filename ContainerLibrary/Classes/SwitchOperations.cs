@@ -7,7 +7,7 @@ using ContainerLibrary.Extensions;
 
 namespace ContainerLibrary.Classes
 {
-    public class EnvironmentOperations
+    public class SwitchOperations
     {
         /// <summary>
         /// 
@@ -58,6 +58,9 @@ namespace ContainerLibrary.Classes
             return userAddress;
             
         }
+        /// <summary>
+        /// Resharper will allow changing the expression body to a conventional switch
+        /// </summary>
         public static void ExpressionBodiedMember()
         {
             EnvironmentData.UserAddress = EnvironmentData.CostCenter switch
@@ -74,10 +77,58 @@ namespace ContainerLibrary.Classes
                          "(877) 345-3484 (outside Oregon) or Fax to (866) 345-1878",
                 "990" => "PO Box 14135 * Salem, Oregon  97309 5068\r\n(503) 292-2057 or (877) 345-3484 (in Oregon)\r\n" +
                          "(877) 345-3484 (outside Oregon) or Fax to (866) 345-1878",
-                _ => "875 Union Street NE\r\nSalem, OR  97311\r\n(800) 237-3710, Fax to (866) 345-1878"
+                _     => "875 Union Street NE\r\nSalem, OR  97311\r\n(800) 237-3710, Fax to (866) 345-1878"
             };
 
         }
+
+        public static string ExpressionBodiedMemberBasic_1(string value) => value switch
+        {
+            "043" => "875 Union Street NE * SALEM, OR  97311",
+            "044" => "875 Union Street NE * SALEM, OR  97311",
+            "040" => "P O BOX 14135 * SALEM, OR  97309-5068",
+            "042" => "875 Union Street NE * SALEM, OR  97311",
+            "045" => "PO BOX 14518 * Salem, Oregon  97309",
+            "200" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            "300" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            "700" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            "990" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            _ => ""
+        };
+        public static string ExpressionBodiedMemberBasicWhen(string value) => value switch
+        {
+            var z when value.InCondition("043", "044") => "875 Union Street NE * SALEM, OR  97311",
+            "040" => "P O BOX 14135 * SALEM, OR  97309-5068",
+            "042" => "875 Union Street NE * SALEM, OR  97311",
+            "045" => "PO BOX 14518 * Salem, Oregon  97309",
+            "200" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            "300" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            "700" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            "990" => "PO Box 14135 * Salem, Oregon  97309 5068",
+            _     => ""
+        };
+
+        public static string ExpressionBodiedMemberCaseInsensitive(string value) => value.ToLower() switch
+        {
+            "yes"   => "Coffee lover",
+            "no"    => "Not into coffee",
+            "maybe" => "Willing to try coffee",
+            _       => "Must be a tea lover"
+        };
+
+
+        public static (string Capital, string Fact) ExtractCountryDetails(Country value)
+        {
+            (string capital, string fact) = value switch
+            {
+                Country.Canada => ("Ottawa", "Is home to 26 Sons of Norway lodges."),
+                Country.Mexico => ("Mexico City", "Is home to the world's largest pyramid"),
+                Country.USA    => ("Washington", " Has The 4th Longest River System In The World"),
+                _              => ("capital ???", "fact ??? ")
+            };
+            return (capital, fact);
+        }
+
     }
-    
+
 }

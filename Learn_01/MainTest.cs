@@ -416,6 +416,49 @@ namespace Learn_01_Week_2
             
         }
 
+        /*
+         * Switch statements
+         * https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements
+         * https://social.technet.microsoft.com/wiki/contents/articles/54200.switch-statement-c.aspx
+         */
+
+
+        [TestMethod]
+        [TestTraits(Trait.PlaceHolder)]
+        public void CaseInsensitiveCaseString()
+        {
+           
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("YES"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("No"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("Maybe"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("Unsure"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive(""));
+        }
+    
+        
+        /// <summary>
+        /// Demonstrates switch expression as a language extension
+        /// </summary>
+        [TestMethod]
+        [TestTraits(Trait.SelectSwitch)]
+        public void SimpleSwitchWithTernaryOperator()
+        {
+            var languageCode = LanguageCode.Russian;
+
+            Debug.WriteLine("Russian");
+            Debug.WriteLine(true.ToYesNoStringIs(languageCode));
+            Debug.WriteLine(false.ToYesNoStringIs(languageCode));
+
+            languageCode = LanguageCode.Spanish;
+
+            Debug.WriteLine("Spanish");
+            Debug.WriteLine(true.ToYesNoStringIs(languageCode));
+            Debug.WriteLine(false.ToYesNoStringIs(languageCode));
+        }
+
+        /// <summary>
+        /// Demonstrates
+        /// </summary>
         [TestMethod]
         [TestTraits(Trait.SelectSwitch)]
         public void CaseWhenInt()
@@ -447,7 +490,7 @@ namespace Learn_01_Week_2
         {
             
             EnvironmentData.CostCenter = "040";
-            EnvironmentOperations.ExpressionBodiedMember();
+            SwitchOperations.ExpressionBodiedMember();
             
             var expected = "P O BOX 14135 * SALEM, OR  97309-5068(877) 345 - 3484 or Fax(503) 947 - 1335";
             
@@ -457,10 +500,25 @@ namespace Learn_01_Week_2
             expected = "875 Union Street NESalem, OR  97311(800) 237-3710, Fax to (866) 345-1878";
             
             EnvironmentData.CostCenter = "999";
-            EnvironmentOperations.ExpressionBodiedMember();
+            SwitchOperations.ExpressionBodiedMember();
             Assert.AreEqual(EnvironmentData.UserAddress.Replace(Environment.NewLine, ""), expected);
 
         }
+
+        [TestMethod]
+        [TestTraits(Trait.SwitchExpressions)]
+        public void SwitchValueNamedTuple()
+        {
+            var expectedCapital = "Mexico City";
+            var expectedFact    = "Is home to the world's largest pyramid";
+            
+            var country = Country.Mexico;
+            var (capital, fact) = SwitchOperations.ExtractCountryDetails(country);
+
+            Assert.AreEqual(capital, expectedCapital);
+            Assert.AreEqual(fact, expectedFact);
+        }
+
         
 
         /// <summary>
