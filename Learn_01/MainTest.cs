@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using ContainerLibrary;
 using ContainerLibrary.Classes;
-using Learn_01.Base;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ContainerLibrary.Extensions;
 using ContainerLibrary.HelperClasses;
-using Learn_01.Classes;
+using Learn_01_Week_2.Base;
+using Learn_01_Week_2.Classes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static ContainerLibrary.MockedEntities;
 
-namespace Learn_01
+namespace Learn_01_Week_2
 {
     /// <summary>
     /// </summary>
@@ -439,7 +438,7 @@ namespace Learn_01
         /// Demonstration for using while statement in <see cref="FileHelpers.ChunkLines"/> in tangent with yield
         /// in a foreach to split a file, in this case 10 lines for new file.
         /// 
-        /// See <see cref="Initialization"/> for code preparation
+        /// See <see cref="Learn_01.MainTest.Initialization"/> for code preparation
         /// 
         /// </summary>
         [TestMethod]

@@ -8,12 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ContainerLibrary.Classes;
 using ContainerLibrary.HelperClasses;
-using Learn_01.Classes;
-using Learn_01.LanguageExtensions;
+using Learn_01_Week_2.Classes;
+using Learn_01_Week_2.LanguageExtensions;
 
 
-// ReSharper disable once CheckNamespace - do not change
-namespace Learn_01
+namespace Learn_01_Week_2
 {
     public partial class MainTest
     {

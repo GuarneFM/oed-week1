@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContainerLibrary", "Contain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IfStatementsConsoleApp", "IfStatementsConsoleApp\IfStatementsConsoleApp.csproj", "{92EDD575-A496-481B-9DA6-466069514843}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn_01", "Learn_01\Learn_01.csproj", "{83CDA10F-3B0B-460D-86CA-40807F07C9E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn_01_Week_2", "Learn_01\Learn_01_Week_2.csproj", "{83CDA10F-3B0B-460D-86CA-40807F07C9E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayGroundConsoleNetCoreApp", "PlayGroundConsoleNetCoreApp\PlayGroundConsoleNetCoreApp.csproj", "{8B1A88CA-4123-4BCA-B953-95C4DEA635D3}"
 EndProject

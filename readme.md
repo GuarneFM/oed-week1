@@ -1,5 +1,5 @@
 # About
 
-This branch contains all code presented on September 10, 2021.
+**Week 2** Course 09/17/2021
 
-![image](assets/cSharpBot.png)
+
