@@ -618,21 +618,7 @@ namespace Learn_01_Week_2
 
         [TestMethod]
         [TestTraits(Trait.SwitchExpressions)]
-        public void SwitchValueNamedTuple()
-        {
-            var expectedCapital = "Mexico City";
-            var expectedFact    = "Is home to the world's largest pyramid";
-            
-            var country = CountryEnum.Mexico;
-            var (capital, fact) = SwitchOperations.ExtractCountryDetails(country);
-
-            Assert.AreEqual(capital, expectedCapital);
-            Assert.AreEqual(fact, expectedFact);
-        }
-
-        [TestMethod]
-        [TestTraits(Trait.SwitchExpressions)]
-        public void SwitchWithDiscard()
+        public void SwitchNewAndConventional()  
         {
             /*
              * Local function
@@ -664,8 +650,20 @@ namespace Learn_01_Week_2
 
         }
 
+        [TestMethod]
+        [TestTraits(Trait.SwitchExpressions)]
+        public void SwitchValueNamedTuple()
+        {
+            var expectedCapital = "Mexico City";
+            var expectedFact    = "Is home to the world's largest pyramid";
+            
+            var country = CountryEnum.Mexico;
+            var (capital, fact) = SwitchOperations.ExtractCountryDetails(country);
 
-        
+            Assert.AreEqual(capital, expectedCapital);
+            Assert.AreEqual(fact, expectedFact);
+        }
+
 
         /// <summary>
         /// Demonstrates using .ForEach language extension rather tha a
