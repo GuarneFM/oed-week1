@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -96,12 +97,32 @@ namespace Learn_01_Week_2
         }
 
         [TestMethod]
-        [TestTraits(Trait.PlaceHolder)]
+        [TestTraits(Trait.PatternMatching)]
         public void PatternMatching_1()
         {
             void Conventional(object personObject)
             {
-                // TODO match PatternMatching next
+                if (personObject.GetType() == typeof(Developer))
+                {
+                    Debug.WriteLine($"Conventional  {((Developer)personObject).FirstName}");
+                }
+                
+
+                if (personObject.GetType() == typeof(Developer))
+                {
+                    
+                    var developer = (Developer) personObject;
+                    
+                    if (developer.Manager.FirstName == "Anne")
+                    {
+                        Debug.WriteLine($"Conventional, Manager is Karen");
+                    }
+                    
+                }
+                
+                /*
+                 * And so forth
+                 */
             }
             
             void PatternMatching(object personObject)
@@ -166,6 +187,21 @@ namespace Learn_01_Week_2
             };
             
             PatternMatching(manager);
+
+            developer = new()
+            {
+                FirstName = "Karen",
+                YearOfBirth = 1986,
+                CountryIdentifier = 10,
+                Manager = new Manager()
+                {
+                    FirstName = "Anne",
+                    LastName = "Roberts",
+                    YearsAsManager = 4
+                }
+            };
+
+            Conventional(developer);
 
         }
 
@@ -593,6 +629,41 @@ namespace Learn_01_Week_2
             Assert.AreEqual(capital, expectedCapital);
             Assert.AreEqual(fact, expectedFact);
         }
+
+        [TestMethod]
+        [TestTraits(Trait.SwitchExpressions)]
+        public void SwitchWithDiscard()
+        {
+            /*
+             * Local function
+             */
+            string FavoriteTask(object personObject) => personObject switch
+            {
+                Developer => "Write code",
+                Manager   => "Create meetings",
+                null      => "Unknown",
+                not null  => "No idea"
+            };
+
+            Developer? developer = new() {FirstName = "Jim"};
+            Debug.WriteLine($"{developer.FirstName} favorite task is {FavoriteTask(developer)}");
+
+            /*
+             * Passing a null Developer we will hit null case
+             */
+            developer = null;
+            Debug.WriteLine(FavoriteTask(developer) == "Unknown");
+            Debug.WriteLine(developer?.FirstName ?? "Null");
+
+            /*
+             * Employee is unknown, hit not null case
+             */
+            Employee employee = new();
+            Debug.WriteLine(FavoriteTask(employee));
+            
+
+        }
+
 
         
 

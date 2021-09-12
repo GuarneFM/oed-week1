@@ -14,7 +14,8 @@ namespace Learn_01_Week_2.Base
         WhileStatements,
         Between,
         SelectSwitch,
-        SwitchExpressions
+        SwitchExpressions,
+        PatternMatching
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.
