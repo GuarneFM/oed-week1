@@ -41,11 +41,14 @@ namespace ActiveDirectoryDemo
         /// <remarks>
         /// Time intensive
         /// </remarks>
-        public static List<Principal> AuthorizedPrincipals => UserPrincipal.Current.GetAuthorizationGroups().ToList();
+        public static List<Principal> AuthorizedPrincipals 
+            => UserPrincipal.Current.GetAuthorizationGroups().ToList();
+
         /// <summary>
         /// Last login formatted
         /// </summary>
-        public static string LastLoginFormatted => UserPrincipal.Current.LastLogon != null ? UserPrincipal.Current.LastLogon.Value.ToString("F") : "";
+        public static string LastLoginFormatted 
+            => UserPrincipal.Current.LastLogon != null ? UserPrincipal.Current.LastLogon.Value.ToString("F") : "";
 
     }
 }
