@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayGroundConsoleNetCoreApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayGroundNetClassLibrary", "PlayGroundNetClassLibrary\PlayGroundNetClassLibrary.csproj", "{F499E645-82FC-4C9C-9ACD-2E1F7AA9B338}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveDirectoryDemo", "ActiveDirectoryDemo\ActiveDirectoryDemo.csproj", "{8BA7C3A1-905B-40BE-97AB-C81F4F37D03D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F499E645-82FC-4C9C-9ACD-2E1F7AA9B338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F499E645-82FC-4C9C-9ACD-2E1F7AA9B338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F499E645-82FC-4C9C-9ACD-2E1F7AA9B338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA7C3A1-905B-40BE-97AB-C81F4F37D03D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA7C3A1-905B-40BE-97AB-C81F4F37D03D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA7C3A1-905B-40BE-97AB-C81F4F37D03D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA7C3A1-905B-40BE-97AB-C81F4F37D03D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{92EDD575-A496-481B-9DA6-466069514843} = {6BE65DE4-8D68-468F-907A-7DF247D9801C}
 		{8B1A88CA-4123-4BCA-B953-95C4DEA635D3} = {6BE65DE4-8D68-468F-907A-7DF247D9801C}
 		{F499E645-82FC-4C9C-9ACD-2E1F7AA9B338} = {DC28733B-529E-4B0F-BB50-E6884D17BE11}
+		{8BA7C3A1-905B-40BE-97AB-C81F4F37D03D} = {6BE65DE4-8D68-468F-907A-7DF247D9801C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2AF739E3-B531-4CFE-93A5-4FF02F015272}

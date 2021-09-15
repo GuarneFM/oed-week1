@@ -21,9 +21,9 @@ namespace PlayGroundConsoleNetCoreApp
             //AllCultureOnCurrentMachine();
             //RandomInts();
 
+            IterateStringBackwards();
 
 
-            Console.ReadLine();
 
 
 

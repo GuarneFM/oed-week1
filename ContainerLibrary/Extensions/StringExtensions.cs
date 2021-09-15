@@ -74,5 +74,12 @@ namespace ContainerLibrary.Extensions
             => Regex.Replace(Regex.Replace(sender, 
                 "(\\P{Ll})(\\P{Ll}\\p{Ll})", "$1 $2"), 
                 "(\\p{Ll})(\\P{Ll})", "$1 $2");
+
+        public static string ReverseEx(this string sender)
+        {
+            char[] charArray = sender.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
     }
 }
