@@ -15,21 +15,14 @@ namespace PlayGroundConsoleNetCoreApp
         {
 
             //IndexString();
+            //IterateStringBackwards();
             //RemoveAllSpaces();
             //WorkingWithRanges();
             //StringArraysLastSixMonths();
             //AllCultureOnCurrentMachine();
             //RandomInts();
-
-            IterateStringBackwards();
-
-
-
-
-
+            
         }
-
     }
-
 }
 
