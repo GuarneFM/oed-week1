@@ -8,7 +8,8 @@ Simple code samples for obtaining user informatio from active directory.
 
 # Notes
 
-Code presented is Windows platform dependent. Under project properties suppression has been used rather than having Visual Studio present a warning on platform dependent.
+- Code presented is Windows platform dependent. Under project properties suppression has been used rather than having Visual Studio present a warning on platform dependent.
+- Code belongs in a class project, we will do this. 
 
 Under project properties
 
