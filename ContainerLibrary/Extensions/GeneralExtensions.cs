@@ -66,6 +66,38 @@ namespace ContainerLibrary.Extensions
                 null :
                 sender.GetRange(startIndex, endIndex);
         }
+
+        #region Historical 
+
+        /// <summary>
+        /// Concat two arrays of the same type (not needed)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        /// <remarks>
+        /// At one time this was not part of the .NET Framework, now it is.
+        /// </remarks>
+        public static T[] Concat<T>(this T[] first, T[] second)
+        {
+            if (first == null)
+            {
+                return second;
+            }
+            if (second == null)
+            {
+                return first;
+            }
+
+            List<T> list = new List<T>(first.Length + second.Length);
+            list.AddRange(first);
+            list.AddRange(second);
+
+            return list.ToArray();
+        }
+
+        #endregion
     }
 }
 

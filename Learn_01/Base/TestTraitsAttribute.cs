@@ -15,7 +15,8 @@ namespace Learn_01_Week_2.Base
         Between,
         SelectSwitch,
         SwitchExpressions,
-        PatternMatching
+        PatternMatching,
+        AccountFileOps
     }
     /// <summary>
     /// Declarative class for using Trait enum about for traits on test method.
