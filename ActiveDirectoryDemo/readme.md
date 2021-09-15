@@ -10,6 +10,8 @@ Simple code samples for obtaining user informatio from active directory.
 
 Code presented is Windows platform dependent. Under project properties suppression has been used rather than having Visual Studio present a warning on platform dependent.
 
+See also [preprocessfor directives](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives)
+
 Under project properties
 
 ![imge](assets/supress.png)
