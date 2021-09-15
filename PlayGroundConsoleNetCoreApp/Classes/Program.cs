@@ -57,6 +57,32 @@ namespace PlayGroundConsoleNetCoreApp
             
         }
 
+        static void IterateStringBackwards()
+        {
+            Debug.WriteLine($"{nameof(IterateStringBackwards)} running");
+
+            // reverse string
+            var firstNameBackwards = _firstName.ReverseEx();
+            Debug.WriteLine(firstNameBackwards);
+
+            // display first name as is
+            for (int index = 0; index < firstNameBackwards.Length; index++)
+            {
+                Debug.WriteLine($"{firstNameBackwards[index]}");
+            }
+
+            Debug.WriteLine("");
+
+            // for in reverse of last for statement
+            for (int index = firstNameBackwards.Length - 1; index >= 0; index--)
+            {
+                Debug.WriteLine($"{firstNameBackwards[index]}");
+            }
+
+            Debug.WriteLine("");
+
+        }
+
         static void RemoveAllSpaces()
         {
             Debug.WriteLine($"{nameof(RemoveAllSpaces)} running");
