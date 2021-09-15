@@ -96,115 +96,6 @@ namespace Learn_01_Week_2
             Assert.IsTrue(notNullEmployee() != null);
         }
 
-        [TestMethod]
-        [TestTraits(Trait.PatternMatching)]
-        public void PatternMatching_1()
-        {
-            void Conventional(object personObject)
-            {
-                if (personObject.GetType() == typeof(Developer))
-                {
-                    Debug.WriteLine($"Conventional  {((Developer)personObject).FirstName}");
-                }
-                
-
-                if (personObject.GetType() == typeof(Developer))
-                {
-                    
-                    var developer = (Developer) personObject;
-                    
-                    if (developer.Manager.FirstName == "Anne")
-                    {
-                        Debug.WriteLine($"Conventional, Manager is Karen");
-                    }
-                    
-                }
-                
-                /*
-                 * And so forth
-                 */
-            }
-            
-            void PatternMatching(object personObject)
-            {
-                /*
-                 * Assert personObject is a Developer and manager's first name is Anne
-                 */
-                if (personObject is Developer { Manager: { FirstName: "Anne" } } developerWithAnneAsManager)
-                {
-                    Debug.WriteLine($"CountryIdentifier is {developerWithAnneAsManager.CountryIdentifier}");
-                }
-
-                /*
-                 * Assert personObject is a Developer and manager's first name length is 4
-                 */
-                if (personObject is Developer { Manager: { FirstName: { Length: 4 } } } developerWithManagerFirstnameLengthOfFour)
-                {
-                    Debug.WriteLine($"Manager Years as manager is {developerWithManagerFirstnameLengthOfFour.Manager.YearsAsManager}");
-                }
-
-                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989 } devBornInEighties)
-                {
-                    Debug.WriteLine($"Year of birth {devBornInEighties.YearOfBirth}");
-                }
-
-                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989 and not 1984 } devBornInEighties1)
-                {
-                    Debug.WriteLine($"Not 1984 {devBornInEighties1.YearOfBirth}");
-                }
-
-
-                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989, Manager: var developersManager })
-                {
-                    Debug.WriteLine($"Manager's last name: {developersManager.LastName}");
-                }
-
-                if (personObject is Manager managerItem)
-                {
-                    Debug.WriteLine($"Manager first name is {managerItem.FirstName}");
-                }
-            }
-
-            Developer developer = new ()
-            {
-                FirstName = "Karen", 
-                YearOfBirth = 1986,
-                CountryIdentifier = 10, 
-                Manager = new Manager()
-                {
-                    FirstName = "Anne", 
-                    LastName = "Roberts",
-                    YearsAsManager = 4
-                }
-            };
-            
-            PatternMatching(developer);
-
-            Manager manager = new()
-            {
-                FirstName = "Karen",
-                CountryIdentifier = 10
-            };
-            
-            PatternMatching(manager);
-
-            developer = new()
-            {
-                FirstName = "Karen",
-                YearOfBirth = 1986,
-                CountryIdentifier = 10,
-                Manager = new Manager()
-                {
-                    FirstName = "Anne",
-                    LastName = "Roberts",
-                    YearsAsManager = 4
-                }
-            };
-
-            Conventional(developer);
-
-        }
-
 
         [TestMethod]
         [TestTraits(Trait.IfStatements)]
@@ -330,6 +221,115 @@ namespace Learn_01_Week_2
 
 
             Assert.IsFalse(customer is { });
+
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.PatternMatching)]
+        public void PatternMatching_1()
+        {
+            void Conventional(object personObject)
+            {
+                if (personObject.GetType() == typeof(Developer))
+                {
+                    Debug.WriteLine($"Conventional  {((Developer)personObject).FirstName}");
+                }
+                
+
+                if (personObject.GetType() == typeof(Developer))
+                {
+                    
+                    var developer = (Developer) personObject;
+                    
+                    if (developer.Manager.FirstName == "Anne")
+                    {
+                        Debug.WriteLine($"Conventional, Manager is Karen");
+                    }
+                    
+                }
+                
+                /*
+                 * And so forth
+                 */
+            }
+            
+            void PatternMatching(object personObject)
+            {
+                /*
+                 * Assert personObject is a Developer and manager's first name is Anne
+                 */
+                if (personObject is Developer { Manager: { FirstName: "Anne" } } developerWithAnneAsManager)
+                {
+                    Debug.WriteLine($"CountryIdentifier is {developerWithAnneAsManager.CountryIdentifier}");
+                }
+
+                /*
+                 * Assert personObject is a Developer and manager's first name length is 4
+                 */
+                if (personObject is Developer { Manager: { FirstName: { Length: 4 } } } developerWithManagerFirstnameLengthOfFour)
+                {
+                    Debug.WriteLine($"Manager Years as manager is {developerWithManagerFirstnameLengthOfFour.Manager.YearsAsManager}");
+                }
+
+                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989 } devBornInEighties)
+                {
+                    Debug.WriteLine($"Year of birth {devBornInEighties.YearOfBirth}");
+                }
+
+                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989 and not 1984 } devBornInEighties1)
+                {
+                    Debug.WriteLine($"Not 1984 {devBornInEighties1.YearOfBirth}");
+                }
+
+
+                if (personObject is Developer { YearOfBirth: >= 1980 and <= 1989, Manager: var developersManager })
+                {
+                    Debug.WriteLine($"Manager's last name: {developersManager.LastName}");
+                }
+
+                if (personObject is Manager managerItem)
+                {
+                    Debug.WriteLine($"Manager first name is {managerItem.FirstName}");
+                }
+            }
+
+            Developer developer = new ()
+            {
+                FirstName = "Karen", 
+                YearOfBirth = 1986,
+                CountryIdentifier = 10, 
+                Manager = new Manager()
+                {
+                    FirstName = "Anne", 
+                    LastName = "Roberts",
+                    YearsAsManager = 4
+                }
+            };
+            
+            PatternMatching(developer);
+
+            Manager manager = new()
+            {
+                FirstName = "Karen",
+                CountryIdentifier = 10
+            };
+            
+            PatternMatching(manager);
+
+            developer = new()
+            {
+                FirstName = "Karen",
+                YearOfBirth = 1986,
+                CountryIdentifier = 10,
+                Manager = new Manager()
+                {
+                    FirstName = "Anne",
+                    LastName = "Roberts",
+                    YearsAsManager = 4
+                }
+            };
+
+            Conventional(developer);
 
         }
 
@@ -480,191 +480,6 @@ namespace Learn_01_Week_2
             }
         }
 
-        [TestMethod]
-        [TestTraits(Trait.Between)]
-        public void BetweenListInt_Elements()
-        {
-            List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
-            List<int> expected = new List<int>() {2, 3, 4 };
-
-            List<int> items = list.BetweenElements(2, 4);
-            foreach (var item in items)
-            {
-                Debug.WriteLine(item);
-            }
-            
-            CollectionAssert.AreEqual(items, expected);
-        }
-
-        [TestMethod]
-        [TestTraits(Trait.Between)]
-        public void BetweenTwoIntGeneric()
-        {
-
-
-            int item = 3;
-            
-            Assert.IsTrue(item.Between(2,4));
-
-            item = 12;
-            Assert.IsFalse(item.Between(2,4));
-            
-
-        }
-
-        [TestMethod]
-        [TestTraits(Trait.Between)]
-        public void BetweenDateGeneric()
-        {
-            var startHour = Now.AddHours(-1);
-            var endHour = Now.AddHours(1);
-            
-            var start = new DateTime(Now.Year, Now.Month, Now.Day, startHour.Hour, 30, 0);
-            var end = new DateTime(Now.Year, Now.Month, Now.Day, endHour.Hour, 59, 0);
-
-            Debug.WriteLine($"{start}     {end}");
-            Debug.WriteLine(Now.Between(start,end));
-            
-        }
-
-        /*
-         * Switch statements
-         * https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements
-         * https://social.technet.microsoft.com/wiki/contents/articles/54200.switch-statement-c.aspx
-         */
-
-
-        [TestMethod]
-        [TestTraits(Trait.PlaceHolder)]
-        public void CaseInsensitiveCaseString()
-        {
-           
-            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("YES"));
-            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("No"));
-            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("Maybe"));
-            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("Unsure"));
-            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive(""));
-        }
-    
-        
-        /// <summary>
-        /// Demonstrates switch expression as a language extension
-        /// </summary>
-        [TestMethod]
-        [TestTraits(Trait.SelectSwitch)]
-        public void SimpleSwitchWithTernaryOperator()
-        {
-            var languageCode = LanguageCode.Russian;
-
-            Debug.WriteLine("Russian");
-            Debug.WriteLine(true.ToYesNoStringIs(languageCode));
-            Debug.WriteLine(false.ToYesNoStringIs(languageCode));
-
-            languageCode = LanguageCode.Spanish;
-
-            Debug.WriteLine("Spanish");
-            Debug.WriteLine(true.ToYesNoStringIs(languageCode));
-            Debug.WriteLine(false.ToYesNoStringIs(languageCode));
-        }
-
-        /// <summary>
-        /// Demonstrates
-        /// </summary>
-        [TestMethod]
-        [TestTraits(Trait.SelectSwitch)]
-        public void CaseWhenInt()
-        {
-            static void CaseWhen(int sender)
-            {
-                switch (sender)
-                {
-                    case { } value when (value >= 7):
-                        Debug.WriteLine($"I am 7 or above => {value}");
-                        break;
-
-                    case { } value when value.Between(4, 6):
-                        Debug.WriteLine($"I am between 4 and 6 => {value}");
-                        break;
-
-                    case { } value when (value.LessThan(3)):
-                        Debug.WriteLine($"I am 3 or less => {value}");
-                        break;
-                }
-            }
-
-            CaseWhen(5);
-        }
-
-        [TestMethod]
-        [TestTraits(Trait.SwitchExpressions)]
-        public void EnvironDataCostCenter()
-        {
-            
-            EnvironmentData.CostCenter = "040";
-            SwitchOperations.ExpressionBodiedMember();
-            
-            var expected = "P O BOX 14135 * SALEM, OR  97309-5068(877) 345 - 3484 or Fax(503) 947 - 1335";
-            
-            Assert.AreEqual(EnvironmentData.UserAddress.Replace(Environment.NewLine, ""), expected);
-
-
-            expected = "875 Union Street NESalem, OR  97311(800) 237-3710, Fax to (866) 345-1878";
-            
-            EnvironmentData.CostCenter = "999";
-            SwitchOperations.ExpressionBodiedMember();
-            Assert.AreEqual(EnvironmentData.UserAddress.Replace(Environment.NewLine, ""), expected);
-
-        }
-
-        [TestMethod]
-        [TestTraits(Trait.SwitchExpressions)]
-        public void SwitchNewAndConventional()  
-        {
-            /*
-             * Local function
-             */
-            string FavoriteTask(object personObject) => personObject switch
-            {
-                Developer => "Write code",
-                Manager   => "Create meetings",
-                null      => "Unknown",
-                not null  => "No idea"
-            };
-
-            Developer? developer = new() {FirstName = "Jim"};
-            Debug.WriteLine($"{developer.FirstName} favorite task is {FavoriteTask(developer)}");
-
-            /*
-             * Passing a null Developer we will hit null case
-             */
-            developer = null;
-            Debug.WriteLine(FavoriteTask(developer) == "Unknown");
-            Debug.WriteLine(developer?.FirstName ?? "Null");
-
-            /*
-             * Employee is unknown, hit not null case
-             */
-            Employee employee = new();
-            Debug.WriteLine(FavoriteTask(employee));
-            
-
-        }
-
-        [TestMethod]
-        [TestTraits(Trait.SwitchExpressions)]
-        public void SwitchValueNamedTuple()
-        {
-            var expectedCapital = "Mexico City";
-            var expectedFact    = "Is home to the world's largest pyramid";
-            
-            var country = CountryEnum.Mexico;
-            var (capital, fact) = SwitchOperations.ExtractCountryDetails(country);
-
-            Assert.AreEqual(capital, expectedCapital);
-            Assert.AreEqual(fact, expectedFact);
-        }
-
-
         /// <summary>
         /// Demonstrates using .ForEach language extension rather tha a
         /// traditional [for-each] statement.
@@ -753,7 +568,187 @@ namespace Learn_01_Week_2
 
         }
 
+        /*
+         * Switch statements
+         * https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements
+         * https://social.technet.microsoft.com/wiki/contents/articles/54200.switch-statement-c.aspx
+         */
 
+
+        [TestMethod]
+        [TestTraits(Trait.PlaceHolder)]
+        public void CaseInsensitiveCaseString()
+        {
+           
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("YES"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("No"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("Maybe"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive("Unsure"));
+            Debug.WriteLine(SwitchOperations.ExpressionBodiedMemberCaseInsensitive(""));
+        }
+    
+        
+        /// <summary>
+        /// Demonstrates switch expression as a language extension
+        /// </summary>
+        [TestMethod]
+        [TestTraits(Trait.SelectSwitch)]
+        public void SimpleSwitchWithTernaryOperator()
+        {
+            var languageCode = LanguageCode.Russian;
+
+            Debug.WriteLine("Russian");
+            Debug.WriteLine(true.ToYesNoStringIs(languageCode));
+            Debug.WriteLine(false.ToYesNoStringIs(languageCode));
+
+            languageCode = LanguageCode.Spanish;
+
+            Debug.WriteLine("Spanish");
+            Debug.WriteLine(true.ToYesNoStringIs(languageCode));
+            Debug.WriteLine(false.ToYesNoStringIs(languageCode));
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.SwitchExpressions)]
+        public void EnvironDataCostCenter()
+        {
+            
+            EnvironmentData.CostCenter = "040";
+            SwitchOperations.ExpressionBodiedMember();
+            
+            var expected = "P O BOX 14135 * SALEM, OR  97309-5068(877) 345 - 3484 or Fax(503) 947 - 1335";
+            
+            Assert.AreEqual(EnvironmentData.UserAddress.Replace(Environment.NewLine, ""), expected);
+
+
+            expected = "875 Union Street NESalem, OR  97311(800) 237-3710, Fax to (866) 345-1878";
+            
+            EnvironmentData.CostCenter = "999";
+            SwitchOperations.ExpressionBodiedMember();
+            Assert.AreEqual(EnvironmentData.UserAddress.Replace(Environment.NewLine, ""), expected);
+
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.SwitchExpressions)]
+        public void SwitchNewAndConventional()  
+        {
+            /*
+             * Local function
+             */
+            string FavoriteTask(object personObject) => personObject switch
+            {
+                Developer => "Write code",
+                Manager   => "Create meetings",
+                null      => "Unknown",
+                not null  => "No idea"
+            };
+
+            Developer? developer = new() {FirstName = "Jim"};
+            Debug.WriteLine($"{developer.FirstName} favorite task is {FavoriteTask(developer)}");
+
+            /*
+             * Passing a null Developer we will hit null case
+             */
+            developer = null;
+            Debug.WriteLine(FavoriteTask(developer) == "Unknown");
+            Debug.WriteLine(developer?.FirstName ?? "Null");
+
+            /*
+             * Employee is unknown, hit not null case
+             */
+            Employee employee = new();
+            Debug.WriteLine(FavoriteTask(employee));
+            
+
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.SwitchExpressions)]
+        public void SwitchValueNamedTuple()
+        {
+            var expectedCapital = "Mexico City";
+            var expectedFact    = "Is home to the world's largest pyramid";
+            
+            var country = CountryEnum.Mexico;
+            var (capital, fact) = SwitchOperations.ExtractCountryDetails(country);
+
+            Assert.AreEqual(capital, expectedCapital);
+            Assert.AreEqual(fact, expectedFact);
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.Between)]
+        public void BetweenDateGeneric()
+        {
+            var startHour = Now.AddHours(-1);
+            var endHour = Now.AddHours(1);
+            
+            var start = new DateTime(Now.Year, Now.Month, Now.Day, startHour.Hour, 30, 0);
+            var end = new DateTime(Now.Year, Now.Month, Now.Day, endHour.Hour, 59, 0);
+
+            Debug.WriteLine($"{start}     {end}");
+            Debug.WriteLine(Now.Between(start,end));
+            
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.Between)]
+        public void BetweenListInt_Elements()
+        {
+            List<int> list = new List<int>() { 1, 2, 3, 4, 5 };
+            List<int> expected = new List<int>() {2, 3, 4 };
+
+            List<int> items = list.BetweenElements(2, 4);
+            foreach (var item in items)
+            {
+                Debug.WriteLine(item);
+            }
+            
+            CollectionAssert.AreEqual(items, expected);
+        }
+
+        [TestMethod]
+        [TestTraits(Trait.Between)]
+        public void BetweenTwoIntGeneric()
+        {
+
+
+            int item = 3;
+            
+            Assert.IsTrue(item.Between(2,4));
+
+            item = 12;
+            Assert.IsFalse(item.Between(2,4));
+        }
+
+        /// <summary>
+        /// Demonstrates
+        /// </summary>
+        [TestMethod]
+        [TestTraits(Trait.SelectSwitch)]
+        public void CaseWhenInt()
+        {
+            static void CaseWhen(int sender)
+            {
+                switch (sender)
+                {
+                    case { } value when (value >= 7):
+                        Debug.WriteLine($"I am 7 or above => {value}");
+                        break;
+
+                    case { } value when value.Between(4, 6):
+                        Debug.WriteLine($"I am between 4 and 6 => {value}");
+                        break;
+
+                    case { } value when (value.LessThan(3)):
+                        Debug.WriteLine($"I am 3 or less => {value}");
+                        break;
+                }
+            }
+
+            CaseWhen(5);
+        }
 
 
     }
