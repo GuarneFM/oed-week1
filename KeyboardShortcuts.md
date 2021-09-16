@@ -33,3 +33,7 @@ This is not a Visual Studio issue per-say as in the majority of cases it's done 
 | Select columns of text  |
 | :--- |
 | To select columns of text <kbd>CTRL</kbd> + <kbd>ALT</kbd> then using arrow keys <kbd>left</kbd> or  <kbd>right</kbd> <kbd>></kbd> <kbd>up</kbd> or <kbd>down</kbd> to select text. See the following video.| 
+
+![Output sample](https://github.com/karenpayneoregon/oed-week1/blob/Week2/assets/ColumnSelectMode.gif)
+
+
