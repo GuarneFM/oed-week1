@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -14,6 +13,20 @@ namespace PlayGroundConsoleNetCoreApp
         static void Main(string[] args)
         {
 
+            string[] names = {"Karen", "Amelia", "Bick" };
+
+            Debug.WriteLine("");
+
+            for (int index = 0; index < names.Length; index++)
+            {
+                Debug.WriteLine($"{index}  {names[index]}");
+            }
+
+            Debug.WriteLine("");
+
+            Debug.WriteLine(string.Join(", ", names));
+            Debug.WriteLine("");
+
             //IndexString();
             //IterateStringBackwards();
             //RemoveAllSpaces();
@@ -21,7 +34,12 @@ namespace PlayGroundConsoleNetCoreApp
             //StringArraysLastSixMonths();
             //AllCultureOnCurrentMachine();
             //RandomInts();
-            
+
+
+
+
+            //AggregateStringConcatenateDelimited();
+            //AggregateIntConcatenateDelimited();
         }
     }
 }
