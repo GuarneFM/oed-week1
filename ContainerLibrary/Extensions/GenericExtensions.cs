@@ -57,5 +57,14 @@ namespace ContainerLibrary.Extensions
         public static bool InCondition<T>(this T sender, params T[] values) 
             => values.Contains(sender);
 
+        public static List<T> GetRange<T>(this List<T> list, Range range)
+        {
+            /*
+             * Named value Tuple
+             */
+            (int start, int length) = range.GetOffsetAndLength(list.Count);
+            return list.GetRange(start, length);
+        }
+
     }
 }

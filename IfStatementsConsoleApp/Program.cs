@@ -293,6 +293,14 @@ namespace IfStatementsConsoleApp
                 Debug.WriteLine("value can not be represented as an int");
             }
 
+            Announce("IsNumeric extension method");
+
+            Debug.WriteLine($"IsNumeric: {value.IsNumeric()}");
+
+            value = "Karen";
+
+            Debug.WriteLine($"IsNumeric: {value.IsNumeric()}");
+
             Announce("double to int casting");
 
             double itemP = 2.4;

@@ -112,5 +112,40 @@ namespace ContainerLibrary.Extensions
             Array.Reverse(charArray);
             return new string(charArray);
         }
+
+        /// <summary>
+        /// Join string array with " and " as the last delimiter.
+        /// </summary>
+        /// <param name="sender">String array to convert to delimited string</param>
+        /// <returns>Delimited string</returns>
+        public static string JoinWithLastSeparator(this string[] sender)
+            => string.Join(", ", sender.Take(sender.Length - 1)) + (((sender.Length <= 1) ? "" : " and ") +
+                                                                    sender.LastOrDefault());
+
+        public static string JoinWithLastSeparator(this List<string> sender)
+            => sender.ToArray().JoinWithLastSeparator();
+
+        /// <summary>
+        /// Wraps string.Join for a list.
+        /// We could name it Join but that would override <see cref="Enumerable.Join"/>
+        /// </summary>
+        /// <param name="sender">list of string to join</param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        public static string JoinWith(this List<string> sender, string separator = ",")
+            => string.Join(separator, sender.ToArray());
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        public static string ReplaceInsensitive(this string sender, string from, string to)
+            => Regex.Replace(sender, @from, to, RegexOptions.IgnoreCase);
+
+        public static string SubstringByIndexes(this string value, int startIndex, int endIndex)
+            => value[startIndex..(endIndex + 1)];
     }
 }
