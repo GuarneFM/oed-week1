@@ -16,7 +16,7 @@ For instance to toggle code outlines may be <kbd>CTRL</kbd> + <kbd>O</kbd>, <kbd
 This is not a Visual Studio issue per-say as in the majority of cases it's done by a user even when Visual Studio warns againsts this.
 
 
-
+:green_circle: [Keyboard shortcuts in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio?view=vs-2019)
 
 | Command  | Keyboard shortcuts |
 | :--- | :--- |
@@ -25,14 +25,18 @@ This is not a Visual Studio issue per-say as in the majority of cases it's done 
 | Format code | <kbd>CTRL</kbd> + <kbd>K</kbd>, <kbd>D</kbd> |
 | Surround code | <kbd>CTRL</kbd> + <kbd>K</kbd>, <kbd>S</kbd> |
 | Editor to solution | <kbd>Ctrl</kbd> + <kbd>R</kbd> |
+| View output window | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>O</kbd> |
 | Solution to editor | <kbd>Ctrl</kbd> + <kbd>F12</kbd> |
 | Duplicate line | <kbd>CTRL</kbd> + <kbd>D</kbd> |
 | Debug selected project | <kbd>F5</kbd> |
 | Rebuld solution | <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>B</kbd> |
+| Buld current project | <kbd>CTRL</kbd>  + <kbd>B</kbd> |
 | Clipboard list | <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>V</kbd> |
 
 
 ---
+
+
 
 | Select columns of text  |
 | :--- |
