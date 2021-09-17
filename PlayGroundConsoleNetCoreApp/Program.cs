@@ -16,6 +16,21 @@ namespace PlayGroundConsoleNetCoreApp
 
         static void Main(string[] args)
         {
+
+        }
+
+        private static void RefactorThese()
+        {
+            //IndexString();
+            //RemoveAllSpaces();
+            //WorkingWithRanges();
+            //StringArraysLastSixMonths();
+            //AllCultureOnCurrentMachine();
+            //RandomInts();
+        }
+
+        private static void StashTemp()
+        {
             /*--------------------------------------------------------------------
              * Example code for handling inability to connection to a SQL-Server
              *  - Demonstrates controlling time-out
@@ -27,17 +42,9 @@ namespace PlayGroundConsoleNetCoreApp
             //SqlFailureOperations.ConnectionFailed -= SqlFailureOperationsOnConnectionFailed;
             //SqlFailureOperations.UnhandledException -= SqlFailureOperationsOnUnhandledException;
 
-
-            //IndexString();
-            //RemoveAllSpaces();
-            //WorkingWithRanges();
-            //StringArraysLastSixMonths();
-            //AllCultureOnCurrentMachine();
-            //RandomInts();
         }
 
         #region Events for SqlFailureOperations
-
         private static void SqlFailureOperationsOnUnhandledException(Exception exception)
         {
             Debug.WriteLine(exception.Message);
@@ -47,7 +54,6 @@ namespace PlayGroundConsoleNetCoreApp
         {
             Debug.WriteLine(exceptionMessage);
         }
-
         #endregion
     }
 

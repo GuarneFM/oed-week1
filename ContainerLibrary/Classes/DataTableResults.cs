@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace PlayGroundConsoleNetCoreApp.Classes
+namespace ContainerLibrary.Classes
 {
     /// <summary>
     /// Not used as we are demonstrating a bad database connection while
