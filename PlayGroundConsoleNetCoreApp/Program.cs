@@ -21,6 +21,7 @@ namespace PlayGroundConsoleNetCoreApp
 
         private static void RefactorThese()
         {
+
             //IndexString();
             //RemoveAllSpaces();
             //WorkingWithRanges();
