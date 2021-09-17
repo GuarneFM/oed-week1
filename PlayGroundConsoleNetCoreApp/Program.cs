@@ -1,4 +1,4 @@
-﻿
+﻿using System.Text.RegularExpressions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,6 +6,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using ContainerLibrary.Classes;
+//using ContainerLibrary.Extensions;
+using ContainerLibrary.Extensions;
 using PlayGroundConsoleNetCoreApp.Classes;
 
 
@@ -17,18 +20,63 @@ namespace PlayGroundConsoleNetCoreApp
         static void Main(string[] args)
         {
 
+            string value = "1a";
+
+            if (int.TryParse(value, out var result))
+            {
+                Debug.WriteLine(result);
+            }
+            else
+            {
+                Debug.WriteLine($"{value} is not an int");
+            }
+
+
+            
+            if (value.IsNumeric())
+            {
+                
+            }
+            else
+            {
+                
+            }
+
+
+
+            value = "1.2";
+            if (decimal.TryParse(value, out var someResult))
+            {
+                
+            }
+            else
+            {
+                
+            }
+
+
+
+
+       
+
+
+
+
+
+
+
 
         }
 
         private static void RefactorThese()
         {
 
-            //IndexString();
-            //RemoveAllSpaces();
-            //WorkingWithRanges();
-            //StringArraysLastSixMonths();
-            //AllCultureOnCurrentMachine();
-            //RandomInts();
+            WorkingWithCharacters.IndexString();
+            WorkingWithCharacters.RemoveAllSpaces();
+            WorkingWithCharacters.WorkingWithRanges();
+            WorkingWithCharacters.StringArraysLastSixMonths();
+            WorkingWithCharacters.AllCultureOnCurrentMachine();
+            WorkingWithCharacters.RandomInts();
         }
 
         private static void StashTemp()
@@ -59,5 +107,8 @@ namespace PlayGroundConsoleNetCoreApp
         #endregion
     }
 
+    internal class Order
+    {
+    }
 }
 

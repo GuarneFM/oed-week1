@@ -25,6 +25,6 @@ namespace PlayGroundConsoleNetCoreApp
             Debug.WriteLine($"{"KarenPayne".SplitCamelCase()} ¯\\_(ツ)_/¯");
             Debug.WriteLine(new string('‾', 30));
         }
-    }
 
+    }
 }

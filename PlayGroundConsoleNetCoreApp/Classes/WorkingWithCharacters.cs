@@ -18,7 +18,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
         protected static string FullFirstName => $"{_firstName} {_middleName}";
 
 
-        private static void IndexString()
+        public static void IndexString()
         {
 
             Debug.WriteLine($"{nameof(IndexString)} running");
@@ -58,7 +58,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
 
         }
 
-        private static void IterateStringBackwards()
+        public static void IterateStringBackwards()
         {
             Debug.WriteLine($"{nameof(IterateStringBackwards)} running");
 
@@ -84,7 +84,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
 
         }
 
-        private static void RemoveAllSpaces()
+        public static void RemoveAllSpaces()
         {
             Debug.WriteLine($"{nameof(RemoveAllSpaces)} running");
 
@@ -105,7 +105,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
         /// These code samples are based on <see cref="FullFirstName"/> as coded,
         /// less characters may raise an <see cref="IndexOutOfRangeException"/>
         /// </summary>
-        private static void WorkingWithRanges()
+        public static void WorkingWithRanges()
         {
 
             Debug.WriteLine("");
@@ -142,7 +142,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
             Debug.WriteLine(firstName);
         }
 
-        private static void StringArraysLastSixMonths()
+        public static void StringArraysLastSixMonths()
         {
             Debug.WriteLine($"{nameof(StringArraysLastSixMonths)} running");
 
@@ -174,7 +174,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
             Debug.WriteLine("");
         }
 
-        private static void AllCultureOnCurrentMachine()
+        public static void AllCultureOnCurrentMachine()
         {
             Debug.WriteLine($"{nameof(AllCultureOnCurrentMachine)} running");
 
@@ -184,7 +184,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
 
         }
 
-        private static void RandomInts()
+        public static void RandomInts()
         {
 
             Debug.WriteLine($"{nameof(RandomInts)} running");
@@ -214,7 +214,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
         /// To assist with <seealso cref="StringExtensions.RemoveAllWhiteSpace"/> with explaining Aggregate,
         /// in this case with strings
         /// </summary>
-        private static void AggregateStringConcatenateDelimited()
+        public static void AggregateStringConcatenateDelimited()
         {
 
             Debug.WriteLine($"{nameof(AggregateStringConcatenateDelimited)} running");
@@ -247,7 +247,7 @@ namespace PlayGroundConsoleNetCoreApp.Classes
         /// Step3: Result of Step 2 i.e. 30 is then multiplied with 7 to produce the result as 210.
         /// Step4: Result of Step 3 i.e. 210 is then multiplied with 9 to produce the final result as 1890.
         /// </summary>
-        private static void AggregateIntConcatenateDelimited()
+        public static void AggregateIntConcatenateDelimited()
         {
 
             Debug.WriteLine($"{nameof(AggregateIntConcatenateDelimited)} running");
