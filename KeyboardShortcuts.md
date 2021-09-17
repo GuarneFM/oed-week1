@@ -47,7 +47,7 @@ This is not a Visual Studio issue per-say as in the majority of cases it's done 
 
 # Creating common statements
 
-| Notes  |
+| Note  |
 | :--- |
 | Each example may vary as I have Resharper yet the important thing is to press <kbd>TAB</kbd> <kbd>TAB</kbd> after a statement with no spaces e.g. if<kbd>TAB</kbd> <kbd>TAB</kbd>.  I had Bick try this and it works perfectly. |
 
@@ -57,9 +57,13 @@ See the full list of snippets in the Snippets Manager
 
 ---
 
+| Note  |
+| :--- |
+| Statements are case sensitive e.g. **if** is correct, **If** is incorrect. |
+
 To create an `if` statement type
 
-if <kbd>TAB</kbd> <kbd>TAB</kbd>
+if<kbd>TAB</kbd> <kbd>TAB</kbd>
 
 Result
 
@@ -72,7 +76,7 @@ if ()
 
 To create a `for` statement
 
-for <kbd>TAB</kbd> <kbd>TAB</kbd>
+for<kbd>TAB</kbd> <kbd>TAB</kbd>
 
 ```csharp
 for (int i = 0; i < UPPER; i++)
@@ -83,7 +87,7 @@ for (int i = 0; i < UPPER; i++)
 
 To create a `foreach` statement
 
-foreach <kbd>TAB</kbd> <kbd>TAB</kbd>
+foreach<kbd>TAB</kbd> <kbd>TAB</kbd>
 
 ```csharp
 foreach (var VARIABLE in COLLECTION)
