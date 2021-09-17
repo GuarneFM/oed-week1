@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using ContainerLibrary;
 using ContainerLibrary.Extensions;
+using IfStatementsConsoleApp.HelperClasses;
 
 
 namespace IfStatementsConsoleApp
@@ -11,13 +12,45 @@ namespace IfStatementsConsoleApp
     {
         static void Main(string[] args)
         {
-            //Operations.Simple_If_Statement_2();
+            
+            Logger.CreateLog();
+            Logger.Timestamp();
+            Logger.EmptyLine();
+
+            Operations.Simple_If_Statement_2();
             Operations.If_Nullable_Property_IsNull_PropertyMatching();
+            
+            try
+            {
+
+                Operations.CrashNicely();
+                Operations.SimpleDiscard();
+            }
+            finally
+            {
+                Logger.Close();
+            }
         }
     }
 
     class Operations
     {
+
+        public static void CrashNicely()
+        {
+            string obj = "A";
+
+            try
+            {
+                var test = Convert.ToInt32(obj);
+            }
+            catch (Exception e)
+            {
+                Logger.Exception(e);
+                Logger.Close();
+            }
+
+        }
         /// <summary>
         /// Standard [if statement] working with null
         /// </summary>
@@ -27,6 +60,7 @@ namespace IfStatementsConsoleApp
         public static void Simple_If_Statement_2()
         {
 
+            Logger.Info(" => Standard [if statement] working with null");
             Debug.WriteLine(nameof(Simple_If_Statement_2));
             
             if (MockedEntities.nullEmployee() is null)
@@ -50,12 +84,16 @@ namespace IfStatementsConsoleApp
                 Debug.WriteLine("Employee is not null 2");
             }
 
+            Logger.EmptyLine();
+            Logger.Close();
+
         }
-
-
+        
         public static void If_Nullable_Property_IsNull_PropertyMatching()
         {
-            
+
+            Logger.Info(" => Pattern matching");
+
             Debug.WriteLine(nameof(If_Nullable_Property_IsNull_PropertyMatching));
             
             var customer = MockedEntities.GetCustomer();
@@ -174,6 +212,111 @@ namespace IfStatementsConsoleApp
                     Debug.WriteLine("Customer is not null");
                     break;
             }
+
+            Logger.EmptyLine();
+            Logger.Close();
+        }
+
+        public static void SimpleDiscard()
+        {
+
+            Logger.Info($"Starting {nameof(SimpleDiscard)}");
+
+            string value = "100";
+
+            int result1;
+            Announce("local variable");
+            if (int.TryParse(value, out result1))
+            {
+                Debug.WriteLine($"value {value} as int {result1}");
+            }
+            else
+            {
+                Debug.WriteLine("value can not be represented as an int");
+            }
+
+            Announce("inline variable");
+            if (int.TryParse(value, out var result2))
+            {
+                Debug.WriteLine($"value {value} as int {result2}");
+            }
+            else
+            {
+                Debug.WriteLine("value can not be represented as an int");
+            }
+
+            Announce($"discard - we are only checking to see if value can represent an int");
+            if (int.TryParse(value, out _))
+            {
+                Debug.WriteLine($"value {value} is an int");
+            }
+            else
+            {
+                Debug.WriteLine("value can not be represented as an int");
+            }
+
+            value = "1A2B";
+            Announce($"value '{value}' does represent a decimal");
+            if (int.TryParse(value, out _))
+            {
+                Debug.WriteLine($"value {value} is an int");
+            }
+            else
+            {
+                Debug.WriteLine("value can not be represented as an int");
+            }
+
+
+            value = "1.8";
+            /*
+             * 1.8  can not represent an int
+             */
+            Announce("value does represent a decimal - using discard");
+            if (int.TryParse(value, out _))
+            {
+                Debug.WriteLine($"value {value} is an int");
+            }
+            else
+            {
+                Debug.WriteLine("value can not be represented as an int");
+            }
+
+
+            Announce("value does represent a decimal");
+
+            if (decimal.TryParse(value, out _))
+            {
+                Debug.WriteLine($"value {value} is an int");
+            }
+            else
+            {
+                Debug.WriteLine("value can not be represented as an int");
+            }
+
+            Announce("double to int casting");
+
+            double itemP = 2.4;
+            double itemN = -2.4;
+
+            Debug.WriteLine($"{(int)((double)(itemP))}");
+            Debug.WriteLine($"{(int)((double)(itemN))}");
+
+            Announce("double to int using Math.Floor");
+
+            Debug.WriteLine($"{(int)(Math.Floor(Convert.ToDouble(itemP)))}");
+            Debug.WriteLine($"{(int)(Math.Floor(Convert.ToDouble(itemN)))}");
+
+
+            Logger.EmptyLine();
+            Logger.Close();
+        }
+
+        private static void Announce(string message)
+        {
+            Debug.WriteLine(new string('_', 30));
+            Debug.WriteLine(message);
+            Debug.WriteLine(new string('‾', 30));
+
         }
     }
 }

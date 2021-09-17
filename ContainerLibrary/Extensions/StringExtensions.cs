@@ -21,8 +21,8 @@ namespace ContainerLibrary.Extensions
         /// true if the value of first is the same as the value of second; otherwise,
         /// false. If both first and second are null, the method returns true.
         /// </returns>
-        public static bool EqualsIgnoreCase(this string first, string second) =>
-            string.Equals(first, second, StringComparison.OrdinalIgnoreCase);
+        public static bool EqualsIgnoreCase(this string first, string second) 
+            => string.Equals(first, second, StringComparison.OrdinalIgnoreCase);
         
         /// <summary>
         /// Determine if string is empty
@@ -30,13 +30,16 @@ namespace ContainerLibrary.Extensions
         /// <param name="sender">String to test if null or whitespace</param>
         /// <returns>true if empty or false if not empty</returns>
         [DebuggerStepThrough]
-        public static bool IsNullOrWhiteSpace(this string sender) => string.IsNullOrWhiteSpace(sender);
+        public static bool IsNullOrWhiteSpace(this string sender) 
+            => string.IsNullOrWhiteSpace(sender);
+
         /// <summary>
         /// Determine if a string can be represented as a numeric.
         /// </summary>
         /// <param name="sender">value to determine if can be converted to a string</param>
         /// <returns>true if sender can represent a number</returns>
-        public static bool IsNumeric(this string sender) => double.TryParse(sender, out _);
+        public static bool IsNumeric(this string sender) 
+            => double.TryParse(sender, out _);
 
         /// <summary>
         /// Get value from a DataReader by column name, if value for column is DBNull then
