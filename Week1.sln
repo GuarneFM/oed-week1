@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActiveDirectoryDemo", "Acti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileLibraryCore", "FileLibraryCore\FileLibraryCore.csproj", "{AD9AD6BE-A76C-481C-A11F-A7F45029FE24}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{9328B33A-5CE7-4356-BCAC-1FCF2CB765E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
