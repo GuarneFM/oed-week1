@@ -6,7 +6,10 @@ namespace IfStatementsConsoleApp.HelperClasses
 {
     /// <summary>
     /// Base example for writing information to a log file, in this case since the file name applicationLog.txt
-    /// has no path it's generated in the application folder
+    /// has no path it's generated in the application folder.
+    ///
+    /// Recommendation
+    ///     When creating a class such as this that is general purpose place into a separate class project.
     /// </summary>
     public static class Logger
     {
