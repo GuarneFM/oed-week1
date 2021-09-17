@@ -147,3 +147,9 @@ Recommenations for try catch.
 - Never have an empty catch
 - Rename `ex` to `exception`
 
+
+**Creating an event**
+
+demonstrate
+
+

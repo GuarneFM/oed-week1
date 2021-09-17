@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using PlayGroundConsoleNetCoreApp.Classes;
 
 
 namespace PlayGroundConsoleNetCoreApp
@@ -14,6 +16,17 @@ namespace PlayGroundConsoleNetCoreApp
 
         static void Main(string[] args)
         {
+            /*--------------------------------------------------------------------
+             * Example code for handling inability to connection to a SQL-Server
+             *  - Demonstrates controlling time-out
+             *  - Demonstrates simple delegates and events
+             --------------------------------------------------------------------*/
+            //SqlFailureOperations.UnhandledException += SqlFailureOperationsOnUnhandledException;
+            //SqlFailureOperations.ConnectionFailed += SqlFailureOperationsOnConnectionFailed;
+            //await SqlFailureOperations.OpenConnection();
+            //SqlFailureOperations.ConnectionFailed -= SqlFailureOperationsOnConnectionFailed;
+            //SqlFailureOperations.UnhandledException -= SqlFailureOperationsOnUnhandledException;
+
 
             //IndexString();
             //RemoveAllSpaces();
@@ -21,31 +34,21 @@ namespace PlayGroundConsoleNetCoreApp
             //StringArraysLastSixMonths();
             //AllCultureOnCurrentMachine();
             //RandomInts();
-
-
-
-            Console.ReadLine();
-
-
-            //if (File.Exists(fileName))
-            //{
-            //    var lines = File.ReadAllLines(fileName);
-            //    foreach (var line in lines)
-            //    {
-            //        if (!string.IsNullOrWhiteSpace(line))
-            //        {
-            //            // do something
-            //        }
-            //    }
-            //}
-
-
-
-
-
-
         }
 
+        #region Events for SqlFailureOperations
+
+        private static void SqlFailureOperationsOnUnhandledException(Exception exception)
+        {
+            Debug.WriteLine(exception.Message);
+        }
+
+        private static void SqlFailureOperationsOnConnectionFailed(string exceptionMessage)
+        {
+            Debug.WriteLine(exceptionMessage);
+        }
+
+        #endregion
     }
 
 }
