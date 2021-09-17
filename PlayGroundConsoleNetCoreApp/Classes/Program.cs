@@ -121,6 +121,7 @@ namespace PlayGroundConsoleNetCoreApp
             Debug.WriteLine(firstName);
 
 
+
             Debug.WriteLine("");
 
             // variable method to get last 7 characters
