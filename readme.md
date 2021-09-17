@@ -4,3 +4,7 @@
 
 [Keyboard information](https://github.com/karenpayneoregon/oed-week1/blob/Week2/KeyboardShortcuts.md)
 
+# GitHub branch
+
+![img](assets/week2_git_branch.png)
+
