@@ -17,6 +17,7 @@ namespace PlayGroundConsoleNetCoreApp
         static void Main(string[] args)
         {
 
+
         }
 
         private static void RefactorThese()
