@@ -85,6 +85,11 @@ for (int i = 0; i < UPPER; i++)
 }
 ```
 
+**for recommendation**
+
+Change 'i' to `index`
+
+
 To create a `foreach` statement
 
 foreach<kbd>TAB</kbd> <kbd>TAB</kbd>
@@ -95,3 +100,50 @@ foreach (var VARIABLE in COLLECTION)
     
 }
 ```
+
+**Surround with**
+
+To wrap code with a statement like a try-catch, select the code below, right click, select surround with.
+
+If a real appliation we would first assert the file exists using [File.Exists](https://docs.microsoft.com/en-us/dotnet/api/system.io.file.exists?view=net-5.0).
+
+```csharp
+string fileName = "SomeFile.txt";
+var lines = File.ReadAllLines(fileName);
+foreach (var line in lines)
+{
+    if (!string.IsNullOrWhiteSpace(line))
+    {
+        // do something
+    }
+}
+```
+
+![img](assets/surround.png)
+
+
+After selecting try-catch
+
+```csharp
+try
+{
+    string fileName = "SomeFile.txt";
+    var lines = File.ReadAllLines(fileName);
+    foreach (var line in lines)
+    {
+        if (!string.IsNullOrWhiteSpace(line))
+        {
+            // do something
+        }
+    }
+}
+catch (Exception ex)
+{
+}
+```
+
+Recommenations for try catch.
+
+- Never have an empty catch
+- Rename `ex` to `exception`
+
