@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ContainerLibrary.Classes;
@@ -13,6 +14,14 @@ namespace ContainerLibrary.Extensions
 {
     public static class StringExtensions
     {
+        /// <summary>
+        /// Convert a json string to a list of T
+        /// </summary>
+        /// <typeparam name="T">Type to deserialize</typeparam>
+        /// <param name="jsonString">Valid json</param>
+        /// <returns>List&lt;T&gt;</returns>
+        public static List<T> JSonToList<T>(this string jsonString) =>
+            JsonSerializer.Deserialize<List<T>>(jsonString);
         /// <summary>
         /// Determines whether two specified String objects have the same value, case insensitive.
         /// </summary>

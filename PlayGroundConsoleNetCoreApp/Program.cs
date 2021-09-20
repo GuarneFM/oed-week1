@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using ContainerLibrary.Classes;
 //using ContainerLibrary.Extensions;
 using ContainerLibrary.Extensions;
+using ContainerLibrary.HelperClasses;
 using PlayGroundConsoleNetCoreApp.Classes;
 
 
@@ -19,7 +20,17 @@ namespace PlayGroundConsoleNetCoreApp
 
         static void Main(string[] args)
         {
+            AverageBirthMonthFromJson();
+        }
 
+        private static void AverageBirthMonthFromJson()
+        {
+            List<Person1> results = File.ReadAllText(
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "PersonBirthdays.json"))
+                .JSonToList<Person1>();
+
+            var avgMonth = results.Average(x => x.BirthDate.Month);
+            Debug.WriteLine($"Average month: {Math.Round(avgMonth, MidpointRounding.ToEven)}");
         }
 
         private static void HourArray()
@@ -76,8 +87,9 @@ namespace PlayGroundConsoleNetCoreApp
         #endregion
     }
 
-    internal class Order
+    public class PeopleBirthdays
     {
+        public Person1[] PersonArray { get; set; }
     }
 }
 

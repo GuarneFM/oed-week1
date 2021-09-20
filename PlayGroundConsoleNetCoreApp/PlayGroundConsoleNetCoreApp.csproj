@@ -15,4 +15,12 @@
   <ItemGroup>
     <ProjectReference Include="..\ContainerLibrary\ContainerLibrary.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Json\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Json\PersonBirthdays.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
