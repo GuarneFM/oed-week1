@@ -19,7 +19,13 @@ namespace PlayGroundConsoleNetCoreApp
 
         static void Main(string[] args)
         {
-            ElapsedTime();
+
+        }
+
+        private static void HourArray()
+        {
+            var hours = Hours.HalfHour;
+            Debug.WriteLine($"{hours.Length}");
         }
 
         private static void ElapsedTime()
