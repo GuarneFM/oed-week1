@@ -90,7 +90,7 @@ namespace ContainerLibrary.Extensions
                 return first;
             }
 
-            List<T> list = new List<T>(first.Length + second.Length);
+            List<T> list = new(first.Length + second.Length);
             list.AddRange(first);
             list.AddRange(second);
 
