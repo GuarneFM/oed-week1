@@ -53,6 +53,7 @@ namespace Learn_01_Week_2
 
         }
 
+
         /// <summary>
         /// Exploration into IsNullOrWhiteSpace and if statements
         /// </summary>
@@ -84,6 +85,8 @@ namespace Learn_01_Week_2
             }
 
         }
+
+
 
         [TestMethod]
         [TestTraits(Trait.IfStatements)]

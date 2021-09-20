@@ -147,5 +147,8 @@ namespace ContainerLibrary.Extensions
 
         public static string SubstringByIndexes(this string value, int startIndex, int endIndex)
             => value[startIndex..(endIndex + 1)];
+
+        public static TimeSpan ToTimeSpan(this string sender) => TimeSpan.Parse(sender);
+        public static bool IsValidTimeFormat(this string sender) => TimeSpan.TryParse(sender, out var _);
     }
 }

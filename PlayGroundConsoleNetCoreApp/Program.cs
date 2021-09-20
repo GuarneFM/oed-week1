@@ -19,53 +19,16 @@ namespace PlayGroundConsoleNetCoreApp
 
         static void Main(string[] args)
         {
+            ElapsedTime();
+        }
 
-            string value = "1a";
+        private static void ElapsedTime()
+        {
+            var startDate = DateTime.Now.AddHours(-1).AddMinutes(1).AddSeconds(-20);
+            var endDate = DateTime.Now;
 
-            if (int.TryParse(value, out var result))
-            {
-                Debug.WriteLine(result);
-            }
-            else
-            {
-                Debug.WriteLine($"{value} is not an int");
-            }
-
-
-            
-            if (value.IsNumeric())
-            {
-                
-            }
-            else
-            {
-                
-            }
-
-
-
-            value = "1.2";
-            if (decimal.TryParse(value, out var someResult))
-            {
-                
-            }
-            else
-            {
-                
-            }
-
-
-
-
-       
-
-
-
-
-
-
-
-
+            Debug.WriteLine($"span {(endDate - startDate).FormatElapsed()}");
+            Debug.WriteLine($"test {endDate.Subtract(startDate).FormatElapsed()}");
         }
 
         private static void RefactorThese()
